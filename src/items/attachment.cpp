@@ -20,7 +20,6 @@
 
 #include <algorithm>
 #include "achievements/achievement_info.hpp"
-#include "audio/sfx_base.hpp"
 #include "config/player_manager.hpp"
 #include "config/stk_config.hpp"
 #include "config/user_config.hpp"
@@ -53,8 +52,6 @@ Attachment::Attachment(AbstractKart* kart)
     m_plugin               = NULL;
     m_kart                 = kart;
     m_previous_owner       = NULL;
-    m_bomb_sound           = NULL;
-    m_bubble_explode_sound = NULL;
     m_node_scale           = 1.0f;
     m_initial_speed        = 0.0f;
 
@@ -79,18 +76,6 @@ Attachment::~Attachment()
 {
     if(m_node)
         irr_driver->removeNode(m_node);
-
-    if (m_bomb_sound)
-    {
-        m_bomb_sound->deleteSFX();
-        m_bomb_sound = NULL;
-    }
-
-    if (m_bubble_explode_sound)
-    {
-        m_bubble_explode_sound->deleteSFX();
-        m_bubble_explode_sound = NULL;
-    }
 }   // ~Attachment
 
 //-----------------------------------------------------------------------------
@@ -142,11 +127,6 @@ void Attachment::set(AttachmentType type, float time,
     case ATTACH_BOMB:
         m_node->setMesh(attachment_manager->getMesh(type));
         m_node->setAnimationSpeed(0);
-        if (m_bomb_sound) m_bomb_sound->deleteSFX();
-        m_bomb_sound = SFXManager::get()->createSoundSource("clock");
-        m_bomb_sound->setLoop(true);
-        m_bomb_sound->setPosition(m_kart->getXYZ());
-        m_bomb_sound->play();
         break;
     default:
         m_node->setMesh(attachment_manager->getMesh(type));
@@ -222,12 +202,6 @@ void Attachment::clear()
     {
         delete m_plugin;
         m_plugin = NULL;
-    }
-
-    if (m_bomb_sound)
-    {
-        m_bomb_sound->deleteSFX();
-        m_bomb_sound = NULL;
     }
 
     m_type=ATTACH_NOTHING;
@@ -377,9 +351,6 @@ void Attachment::hitBanana(Item *item, int new_attachment)
         leftover_time  = m_time_left;
         break;
     default:
-        // There is no attachment currently, but there will be one
-        // so play the character sound ("Uh-Oh")
-        m_kart->playCustomSFX(SFXManager::CUSTOM_ATTACH);
 
         if(new_attachment==-1)
         {
@@ -455,7 +426,6 @@ void Attachment::handleCollisionWithKart(AbstractKart *other)
                                             getTimeLeft()+
                                             stk_config->m_bomb_time_increase,
                                             m_kart);
-                other->playCustomSFX(SFXManager::CUSTOM_ATTACH);
                 clear();
             }
         }
@@ -472,14 +442,7 @@ void Attachment::handleCollisionWithKart(AbstractKart *other)
         set(ATTACH_BOMB, other->getAttachment()->getTimeLeft()+
                          stk_config->m_bomb_time_increase, other);
         other->getAttachment()->clear();
-        m_kart->playCustomSFX(SFXManager::CUSTOM_ATTACH);
     }
-    else
-    {
-        m_kart->playCustomSFX(SFXManager::CUSTOM_CRASH);
-        other->playCustomSFX(SFXManager::CUSTOM_CRASH);
-    }
-
 }   // handleCollisionWithKart
 
 //-----------------------------------------------------------------------------
@@ -551,9 +514,6 @@ void Attachment::update(float dt)
         assert(false);
         break;
     case ATTACH_BOMB:
-
-        if (m_bomb_sound) m_bomb_sound->setPosition(m_kart->getXYZ());
-
         // Mesh animation frames are 1 to 61 frames (60 steps)
         // The idea is change second by second, counterclockwise 60 to 0 secs
         // If longer times needed, it should be a surprise "oh! bomb activated!"
@@ -569,12 +529,6 @@ void Attachment::update(float dt)
                 he->setLocalPlayerKartHit();
             projectile_manager->addHitEffect(he);
             ExplosionAnimation::create(m_kart);
-
-            if (m_bomb_sound)
-            {
-                m_bomb_sound->deleteSFX();
-                m_bomb_sound = NULL;
-            }
         }
         break;
     case ATTACH_TINYTUX:
@@ -585,10 +539,6 @@ void Attachment::update(float dt)
         if (m_time_left < 0)
         {
             m_time_left = 0.0f;
-            if (m_bubble_explode_sound) m_bubble_explode_sound->deleteSFX();
-            m_bubble_explode_sound = SFXManager::get()->createSoundSource("bubblegum_explode");
-            m_bubble_explode_sound->setPosition(m_kart->getXYZ());
-            m_bubble_explode_sound->play();
 
             // drop a small bubble gum
             Vec3 hit_point;

@@ -19,7 +19,6 @@
 
 #include "states_screens/create_server_screen.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/player_manager.hpp"
 #include "config/user_config.hpp"
@@ -140,7 +139,6 @@ void CreateServerScreen::onUpdate(float delta)
     const irr::core::stringw &error = STKHost::get()->getErrorMessage();
     if(error!="")
     {
-        SFXManager::get()->quickSound("anvil");
         m_info_widget->setErrorColor();
         m_info_widget->setText(error, false);
         return;
@@ -179,7 +177,6 @@ void CreateServerScreen::createServer()
     {
         m_info_widget->setText(
             _("Name has to be between 4 and 30 characters long!"), false);
-        SFXManager::get()->quickSound("anvil");
         return;
     }
     else if (max_players < 2 || max_players > 12)
@@ -187,7 +184,6 @@ void CreateServerScreen::createServer()
         m_info_widget->setText(
             _("The maxinum number of players has to be between 2 and 12."),
             false);
-        SFXManager::get()->quickSound("anvil");
         return;
     }
 

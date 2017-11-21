@@ -17,7 +17,6 @@
 
 #include "states_screens/network_kart_selection.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/player_manager.hpp"
 #include "config/user_config.hpp"
@@ -128,7 +127,7 @@ void NetworkKartSelectionScreen::playerConfirm(const int playerID)
 
     if (m_kart_widgets[playerID].getKartInternalName().size() == 0)
     {
-        SFXManager::get()->quickSound( "anvil" );
+
         return;
     }
     if(playerID == PLAYER_ID_GAME_MASTER) // self

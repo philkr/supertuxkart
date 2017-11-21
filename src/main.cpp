@@ -172,8 +172,6 @@
 #include "achievements/achievements_manager.hpp"
 #include "addons/addons_manager.hpp"
 #include "addons/news_manager.hpp"
-#include "audio/music_manager.hpp"
-#include "audio/sfx_manager.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/hardware_stats.hpp"
 #include "config/player_manager.hpp"
@@ -1406,8 +1404,8 @@ void initRest()
     Online::RequestManager::get()->startNetworkThread();
     NewsManager::get();   // this will create the news manager
 
-    music_manager = new MusicManager();
-    SFXManager::create();
+//     music_manager = new MusicManager();
+//     SFXManager::create();
     // The order here can be important, e.g. KartPropertiesManager needs
     // defaultKartProperties, which are defined in stk_config.
     history                 = new History              ();
@@ -1435,7 +1433,7 @@ void initRest()
     }
 
     track_manager->loadTrackList();
-    music_manager->addMusicToTracks();
+//     music_manager->addMusicToTracks();
 
     GUIEngine::addLoadingIcon(irr_driver->getTexture(FileManager::GUI,
                                                      "notes.png"      ) );
@@ -1871,8 +1869,8 @@ static void cleanSuperTuxKart()
 
     // Stop music (this request will go into the sfx manager queue, so it needs
     // to be done before stopping the thread).
-    music_manager->stopMusic();
-    SFXManager::get()->stopThread();
+//     music_manager->stopMusic();
+//     SFXManager::get()->stopThread();
     irr_driver->updateConfigIfRelevant();
     AchievementsManager::destroy();
     Referee::cleanup();
@@ -1916,16 +1914,16 @@ static void cleanSuperTuxKart()
     }
     Online::RequestManager::deallocate();
 
-    if (!SFXManager::get()->waitForReadyToDeleted(2.0f))
-    {
-        Log::info("Thread", "SFXManager not stopping, exiting anyway.");
-    }
-    SFXManager::destroy();
+//     if (!SFXManager::get()->waitForReadyToDeleted(2.0f))
+//     {
+//         Log::info("Thread", "SFXManager not stopping, exiting anyway.");
+//     }
+//     SFXManager::destroy();
 
     // Music manager can not be deleted before the SFX thread is stopped
     // (since SFX commands can contain music information, which are
     // deleted by the music manager).
-    delete music_manager;
+//     delete music_manager;
 
     // The add-ons manager might still be called from a currenty running request
     // in the request manager, so it can not be deleted earlier.

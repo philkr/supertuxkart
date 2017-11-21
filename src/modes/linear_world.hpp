@@ -23,8 +23,6 @@
 #include "modes/world_with_rank.hpp"
 #include "utils/aligned_array.hpp"
 
-class SFXBase;
-
 /*
  * A 'linear world' is a subcategory of world used in 'standard' races, i.e.
  * with a start line and a road that loops. This includes management of drivelines
@@ -34,8 +32,6 @@ class SFXBase;
 class LinearWorld : public WorldWithRank
 {
 private:
-    /** Sfx for the final lap. */
-    SFXBase     *m_last_lap_sfx;
 
     /** Last lap sfx should only be played once. */
     bool         m_last_lap_sfx_played;

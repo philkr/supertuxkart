@@ -17,7 +17,7 @@
 
 #include "states_screens/online_user_search.hpp"
 
-#include "audio/sfx_manager.hpp"
+
 #include "config/player_manager.hpp"
 #include "guiengine/modaldialog.hpp"
 #include "online/profile_manager.hpp"
@@ -255,7 +255,7 @@ void OnlineUserSearch::onUpdate(float dt)
             }
             else
             {
-                SFXManager::get()->quickSound( "anvil" );
+
                 new MessageDialog(m_search_request->getInfo());
             }
 

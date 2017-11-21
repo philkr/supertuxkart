@@ -19,9 +19,6 @@
 #include "modes/world.hpp"
 
 #include "achievements/achievement_info.hpp"
-#include "audio/music_manager.hpp"
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_manager.hpp"
 #include "config/player_manager.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/user_config.hpp"
@@ -294,10 +291,9 @@ void World::reset()
     m_race_gui->reset();
 
     // Start music from beginning
-    music_manager->stopMusic();
+//     music_manager->stopMusic();
 
     // Enable SFX again
-    SFXManager::get()->resumeAll();
 
     projectile_manager->cleanup();
     race_manager->reset();
@@ -1254,9 +1250,9 @@ void World::getDefaultCollectibles(int *collectible_type, int *amount )
  */
 void World::pause(Phase phase)
 {
-    if (m_stop_music_when_dialog_open)
-        music_manager->pauseMusic();
-    SFXManager::get()->pauseAll();
+//     if (m_stop_music_when_dialog_open)
+//         music_manager->pauseMusic();
+//     SFXManager::get()->pauseAll();
 
     WorldStatus::pause(phase);
 }   // pause
@@ -1264,9 +1260,9 @@ void World::pause(Phase phase)
 //-----------------------------------------------------------------------------
 void World::unpause()
 {
-    if (m_stop_music_when_dialog_open)
-        music_manager->resumeMusic();
-    SFXManager::get()->resumeAll();
+//     if (m_stop_music_when_dialog_open)
+//         music_manager->resumeMusic();
+//     SFXManager::get()->resumeAll();
 
     WorldStatus::unpause();
 

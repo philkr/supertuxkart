@@ -19,7 +19,6 @@
 
 #include "graphics/camera.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "config/stk_config.hpp"
 #include "config/user_config.hpp"
 #include "graphics/camera_debug.hpp"
@@ -312,9 +311,6 @@ void Camera::update(float dt)
         if (race_manager->getNumLocalPlayers() < 2)
         {
             Vec3 pos(m_camera->getPosition());
-            SFXManager::get()->positionListener(pos,
-                Vec3(m_camera->getTarget()) - pos,
-                Vec3(0, 1, 0));
         }
 
         return; // cameras not attached to kart must be positioned manually
@@ -323,9 +319,6 @@ void Camera::update(float dt)
     if (race_manager->getNumLocalPlayers() < 2)
     {
         Vec3 heading(sin(m_kart->getHeading()), 0.0f, cos(m_kart->getHeading()));
-        SFXManager::get()->positionListener(m_kart->getXYZ(),
-                                            heading,
-                                            Vec3(0, 1, 0));
     }
 }   // update
 

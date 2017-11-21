@@ -28,7 +28,6 @@
 class AbstractKart;
 class BareNetworkString;
 class Item;
-class SFXBase;
 
 /**
   * \ingroup items
@@ -38,9 +37,6 @@ class Powerup : public NoCopy
 private:
     /** A synchronised random number generator for network games. */
     RandomGenerator             m_random;
-
-    /** Sound effect that is being played. */
-    SFXBase                    *m_sound_use;
 
     /** The powerup type. */
     PowerupManager::PowerupType m_type;

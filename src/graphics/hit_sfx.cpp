@@ -18,22 +18,16 @@
 
 #include "graphics/hit_sfx.hpp"
 
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_manager.hpp"
 #include "race/race_manager.hpp"
 
 /** Creates a sound effect when something was hit. */
 HitSFX::HitSFX(const Vec3& coord, const char* explosion_sound)
              : HitEffect()
 {
-    m_sfx = SFXManager::get()->createSoundSource( explosion_sound );
-
     // in multiplayer mode, sounds are NOT positional (because we have
     // multiple listeners) so the sounds of all AIs are constantly heard.
     // Therefore reduce volume of sounds.
     float vol = race_manager->getNumLocalPlayers() > 1 ? 0.5f : 1.0f;
-    m_sfx->setVolume(vol);
-    m_sfx->play(coord);
 }   // HitSFX
 
 //-----------------------------------------------------------------------------
@@ -41,7 +35,6 @@ HitSFX::HitSFX(const Vec3& coord, const char* explosion_sound)
  */
 HitSFX::~HitSFX()
 {
-    m_sfx->deleteSFX();
 }   // ~HitEffect
 
 //-----------------------------------------------------------------------------
@@ -51,8 +44,6 @@ HitSFX::~HitSFX()
  */
 void HitSFX::setLocalPlayerKartHit()
 {
-    if(race_manager->getNumLocalPlayers())
-        m_sfx->setVolume(1.0f);
 }   // setLocalPlayerKartHit
 
 //-----------------------------------------------------------------------------
@@ -63,6 +54,5 @@ void HitSFX::setLocalPlayerKartHit()
  */
 bool HitSFX::updateAndDelete(float dt)
 {
-    SFXBase::SFXStatus status = m_sfx->getStatus();
-    return status!= SFXBase::SFX_PLAYING;
+    return true;
 }   // updateAndDelete

@@ -18,8 +18,6 @@
 
 #include "states_screens/grand_prix_win.hpp"
 
-#include "audio/music_manager.hpp"
-#include "audio/sfx_manager.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/player_manager.hpp"
 #include "graphics/irr_driver.hpp"
@@ -212,7 +210,6 @@ void GrandPrixWin::init()
     m_global_time = 0.0f;
     m_phase = 1;
 
-    SFXManager::get()->quickSound("gp_end");
     getWidget<ButtonWidget>("continue")->setFocusForPlayer(PLAYER_ID_GAME_MASTER);
 }   // init
 
@@ -403,11 +400,11 @@ void GrandPrixWin::setKarts(const std::string idents_arg[3])
 
 // -------------------------------------------------------------------------------------
 
-MusicInformation* GrandPrixWin::getInGameMenuMusic() const
-{
-    MusicInformation* mi = music_manager->getMusicInformation("win_theme.music");
-    return mi;
-}
+// MusicInformation* GrandPrixWin::getInGameMenuMusic() const
+// {
+//     MusicInformation* mi = music_manager->getMusicInformation("win_theme.music");
+//     return mi;
+// }
 
 // -------------------------------------------------------------------------------------
 

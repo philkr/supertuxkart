@@ -31,7 +31,6 @@ namespace irr
 }
 using namespace irr;
 
-#include "audio/sfx_manager.hpp"
 #include "io/xml_node.hpp"
 #include "race/race_manager.hpp"
 #include "utils/interpolation_array.hpp"
@@ -275,11 +274,6 @@ public:
     // ------------------------------------------------------------------------
     /** Returns the absolute path of the icon file of this kart. */
     const std::string& getAbsoluteIconFile() const      { return m_icon_file; }
-
-    // ------------------------------------------------------------------------
-    /** Returns custom sound effects for this kart. */
-    const int          getCustomSfxId (SFXManager::CustomSFX type)
-                                       const  {return m_custom_sfx_id[type];  }
 
     // ------------------------------------------------------------------------
     /** Returns the version of the .kart file. */

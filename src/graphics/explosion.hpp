@@ -30,7 +30,6 @@ namespace irr
 using namespace irr;
 
 class Vec3;
-class SFXBase;
 class ParticleEmitter;
 
 const float explosion_time = 2.0f;

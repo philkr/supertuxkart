@@ -21,7 +21,6 @@
 
 #include "items/plunger.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "io/xml_node.hpp"
 #include "items/rubber_band.hpp"
 #include "items/projectile_manager.hpp"
@@ -166,8 +165,6 @@ bool Plunger::hit(AbstractKart *kart, PhysicalObject *obj)
         if(kart)
         {
             kart->blockViewWithPlunger();
-            if (kart->getController()->isLocalPlayerController())
-                SFXManager::get()->quickSound("plunger");
         }
 
         m_keep_alive = 0;

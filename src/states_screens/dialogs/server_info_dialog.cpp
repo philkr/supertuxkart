@@ -17,7 +17,6 @@
 
 #include "states_screens/dialogs/server_info_dialog.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "guiengine/engine.hpp"
 #include "network/protocol_manager.hpp"
 #include "network/protocols/request_connection.hpp"

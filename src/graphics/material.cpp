@@ -23,8 +23,6 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_buffer.hpp"
 #include "config/user_config.hpp"
 #include "config/stk_config.hpp"
 #include "guiengine/engine.hpp"
@@ -551,13 +549,6 @@ Material::~Material()
 {
     unloadTexture();
 
-    // If a special sfx is installed (that isn't part of stk itself), the
-    // entry needs to be removed from the sfx_manager's mapping, since other
-    // tracks might use the same name.
-    if(m_sfx_name!="" && m_sfx_name==m_texname)
-    {
-        SFXManager::get()->deleteSFXMapping(m_sfx_name);
-    }
 }   // ~Material
 
 //-----------------------------------------------------------------------------
@@ -617,20 +608,6 @@ void Material::initCustomSFX(const XMLNode *sfx)
             / (m_sfx_max_speed - m_sfx_min_speed);
     }
 
-    if(!SFXManager::get()->soundExist(m_sfx_name))
-    {
-
-        // The directory for the track was added to the model search path
-        // so just misuse the searchModel function
-        std::string path = file_manager->searchModel(filename);
-        path = StringUtils::getPath(path);
-        SFXBuffer* buffer = SFXManager::get()->loadSingleSfx(sfx, path);
-
-        if (buffer != NULL)
-        {
-            buffer->setPositional(true);
-        }
-    }
 }   // initCustomSFX
 
 //-----------------------------------------------------------------------------
@@ -700,48 +677,6 @@ void Material::initParticlesEffect(const XMLNode *node)
         }
     }
 } // initParticlesEffect
-
-//-----------------------------------------------------------------------------
-/** Adjusts the pitch of the given sfx depending on the given speed.
- *  \param sfx The sound effect to adjust.
- *  \param speed The speed of the kart.
- *  \param should_be_paused Pause for other reasons, i.e. kart is rescued.
- */
-void Material::setSFXSpeed(SFXBase *sfx, float speed, bool should_be_paused) const
-{
-    // Still make a sound when driving backwards on the material.
-    if (speed < 0) speed = -speed;
-
-    // If we paused it due to too low speed earlier, we can continue now.
-    if (sfx->getStatus() == SFXBase::SFX_PAUSED)
-    {
-        if (speed<m_sfx_min_speed || should_be_paused == 1) return;
-        // TODO: Do we first need to stop the sound completely so it
-        // starts over?
-        sfx->play();
-    }
-    else if (sfx->getStatus() == SFXBase::SFX_PLAYING)
-    {
-        if (speed<m_sfx_min_speed || should_be_paused == 1)
-        {
-            // Pausing it to differentiate with sounds that ended etc
-            sfx->pause();
-            return;
-        }
-    }
-    if (speed > m_sfx_max_speed)
-    {
-        assert(!std::isnan(m_sfx_max_speed));
-        sfx->setSpeed(m_sfx_max_pitch);
-        return;
-    }
-
-    assert(!std::isnan(speed));
-
-    float f = m_sfx_pitch_per_speed*(speed-m_sfx_min_speed) + m_sfx_min_pitch;
-    assert(!std::isnan(f));
-    sfx->setSpeed(f);
-}   // setSFXSpeed
 
 //-----------------------------------------------------------------------------
 /** Sets the appropriate flags in an irrlicht SMaterial.

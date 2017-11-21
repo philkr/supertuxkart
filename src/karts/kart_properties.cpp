@@ -73,7 +73,6 @@ KartProperties::KartProperties(const std::string &filename)
     m_shadow_z_offset = 0.0f;
 
     m_groups.clear();
-    m_custom_sfx_id.resize(SFXManager::NUM_CUSTOMS);
 
     // Set all other values to undefined, so that it can later be tested
     // if everything is defined properly.
@@ -432,17 +431,6 @@ void KartProperties::getAllData(const XMLNode * root)
         else if (s == "small") m_engine_sfx_type = "engine_small";
         else
         {
-            if (SFXManager::get()->soundExist(s))
-            {
-                m_engine_sfx_type = s;
-            }
-            else
-            {
-                Log::error("[KartProperties]",
-                           "Kart '%s' has an invalid engine '%s'.",
-                           m_name.c_str(), s.c_str());
-                m_engine_sfx_type = "engine_small";
-            }
         }
 
 #ifdef WILL_BE_ENABLED_ONCE_DONE_PROPERLY

@@ -17,8 +17,8 @@
 
 #include "states_screens/options_screen_video.hpp"
 
-#include "audio/sfx_manager.hpp"
-#include "audio/sfx_base.hpp"
+
+
 #include "config/stk_config.hpp"
 #include "config/user_config.hpp"
 #include "graphics/central_settings.hpp"

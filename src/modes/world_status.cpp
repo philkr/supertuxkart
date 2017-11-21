@@ -18,9 +18,6 @@
 #include "modes/world_status.hpp"
 
 #include "main_loop.hpp"
-#include "audio/music_manager.hpp"
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_manager.hpp"
 #include "config/stk_config.hpp"
 #include "config/user_config.hpp"
 #include "graphics/irr_driver.hpp"
@@ -39,10 +36,6 @@
 WorldStatus::WorldStatus()
 {
     m_clock_mode        = CLOCK_CHRONO;
-
-    m_prestart_sound    = SFXManager::get()->createSoundSource("pre_start_race");
-    m_start_sound       = SFXManager::get()->createSoundSource("start_race");
-    m_track_intro_sound = SFXManager::get()->createSoundSource("track_intro");
 
     m_play_track_intro_sound = UserConfigParams::m_music;
     m_play_ready_set_go_sounds = true;
@@ -84,7 +77,6 @@ void WorldStatus::reset()
 
     m_previous_phase  = UNDEFINED_PHASE;
     // Just in case that the game is reset during the intro phase
-    m_track_intro_sound->stop();
 
     IrrlichtDevice *device = irr_driver->getDevice();
 
@@ -104,9 +96,6 @@ void WorldStatus::reset()
  */
 WorldStatus::~WorldStatus()
 {
-    m_prestart_sound->deleteSFX();
-    m_start_sound->deleteSFX();
-    m_track_intro_sound->deleteSFX();
     IrrlichtDevice *device = irr_driver->getDevice();
 
     if (device->getTimer()->isStopped())
@@ -190,11 +179,6 @@ void WorldStatus::updateTime(const float dt)
         case SETUP_PHASE:
             m_auxiliary_timer = 0.0f;
             m_phase = TRACK_INTRO_PHASE;
-            
-            if (m_play_track_intro_sound)
-            {
-                m_track_intro_sound->play();
-            }
 
             if (Weather::getInstance())
             {
@@ -213,16 +197,6 @@ void WorldStatus::updateTime(const float dt)
                 m_auxiliary_timer += dt * 6;
             }
 
-            // Work around a bug that occurred on linux once:
-            // the SFXManager::get() kept on reporting that it is playing,
-            // while it was not - so STK would never reach the ready
-            // ... phase. Since the sound effect is about 3 seconds
-            // long, we use the aux timer to force the next phase
-            // after 3.5 seconds.
-            if (m_track_intro_sound->getStatus() == SFXBase::SFX_PLAYING &&
-                m_auxiliary_timer < 3.5f)
-                return;   // Do not increase time
-
             // Wait before ready phase if sounds are disabled
             if (!UserConfigParams::m_sfx && m_auxiliary_timer < 3.0f)
                 return;
@@ -236,8 +210,6 @@ void WorldStatus::updateTime(const float dt)
 
             m_auxiliary_timer = 0.0f;
 
-            if (m_play_ready_set_go_sounds)
-                m_prestart_sound->play();
 
             // In a networked game the client needs to wait for a notification
             // from the server that all clients and the server are ready to 
@@ -270,10 +242,6 @@ void WorldStatus::updateTime(const float dt)
 
             if (m_auxiliary_timer > 1.0)
             {
-                if (m_play_ready_set_go_sounds)
-                {
-                    m_prestart_sound->play();
-                }
 
                 m_phase = SET_PHASE;
             }
@@ -296,10 +264,6 @@ void WorldStatus::updateTime(const float dt)
             {
                 // set phase is over, go to the next one
                 m_phase = GO_PHASE;
-                if (m_play_ready_set_go_sounds)
-                {
-                    m_start_sound->play();
-                }
 
                 // event
                 onGo();
@@ -320,11 +284,11 @@ void WorldStatus::updateTime(const float dt)
             return;   // Do not increase time
         case GO_PHASE  :
 
-            if (m_auxiliary_timer>2.5f && music_manager->getCurrentMusic() &&
-                !music_manager->getCurrentMusic()->isPlaying())
-            {
-                music_manager->startMusic();
-            }
+//             if (m_auxiliary_timer>2.5f && music_manager->getCurrentMusic() &&
+//                 !music_manager->getCurrentMusic()->isPlaying())
+//             {
+//                 music_manager->startMusic();
+//             }
 
             if (m_auxiliary_timer > 3.0f)    // how long to display the 'go' message
             {
@@ -348,7 +312,7 @@ void WorldStatus::updateTime(const float dt)
             // Start the music here when starting fast
             if (UserConfigParams::m_race_now)
             {
-                music_manager->startMusic();
+//                 music_manager->startMusic();
                 UserConfigParams::m_race_now = false;
             }
             // how long to display the 'music' message

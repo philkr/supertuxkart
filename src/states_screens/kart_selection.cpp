@@ -18,7 +18,6 @@
 
 #include "states_screens/kart_selection.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/player_manager.hpp"
 #include "config/user_config.hpp"
@@ -460,7 +459,7 @@ bool KartSelectionScreen::joinPlayer(InputDevice* device)
     {
         Log::error("KartSelectionScreen", "Maximum number of players "
                   "reached");
-        SFXManager::get()->quickSound( "anvil" );
+
         return false;
     }
 
@@ -586,7 +585,6 @@ bool KartSelectionScreen::playerQuit(StateManager::ActivePlayer* player)
             // then they can't back out
             if (m_kart_widgets[n].isReady())
             {
-                SFXManager::get()->quickSound( "anvil" );
                 return true;
             }
 
@@ -727,7 +725,6 @@ void KartSelectionScreen::playerConfirm(const int player_id)
     if (m_kart_widgets[player_id].getKartInternalName().size() == 0 ||
         m_kart_widgets[player_id].getKartInternalName() == RibbonWidget::NO_ITEM_ID)
     {
-        SFXManager::get()->quickSound( "anvil" );
         return;
     }
 
@@ -759,7 +756,6 @@ void KartSelectionScreen::playerConfirm(const int player_id)
                 Log::warn("KartSelectionScreen", "You can't select this identity "
                        "or kart, someone already took it!!");
 
-            SFXManager::get()->quickSound( "anvil" );
             return;
         }
 

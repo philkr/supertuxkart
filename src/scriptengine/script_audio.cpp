@@ -17,7 +17,6 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "script_audio.hpp"
-#include "audio/sfx_manager.hpp"
 
 #include <angelscript.h>
 #include <assert.h>
@@ -40,7 +39,6 @@ namespace Scripting
 
         void playSound(const std::string* sound_name)
         {
-            SFXManager::get()->quickSound(*sound_name);
         }
 
         /** @}*/

@@ -21,7 +21,6 @@
 
 #include <assert.h>
 
-#include "audio/sfx_manager.hpp"
 #include "config/user_config.hpp"
 #include "graphics/irr_driver.hpp"
 #include "graphics/material_manager.hpp"
@@ -270,7 +269,6 @@ void MainLoop::run()
             // can use as many threads as possible without interfering
             // with audio
             PROFILER_PUSH_CPU_MARKER("Music", 0x7F, 0x00, 0x00);
-            SFXManager::get()->update();
             PROFILER_POP_CPU_MARKER();
 
             PROFILER_PUSH_CPU_MARKER("Protocol manager update", 0x7F, 0x00, 0x7F);

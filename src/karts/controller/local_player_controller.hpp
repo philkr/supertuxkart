@@ -25,8 +25,6 @@
 
 class AbstractKart;
 class ParticleEmitter;
-class SFXBase;
-class SFXBuffer;
 
 /** PlayerKart manages control events from the player and moves
   * them to the Kart
@@ -47,12 +45,6 @@ private:
     /** The index of the camera attached to the kart for this controller. The
      *  camera object is managed in the Camera class, so no need to free it. */
     int  m_camera_index;
-
-    SFXBase     *m_wee_sound;
-    SFXBuffer   *m_bzzt_sound;
-    SFXBuffer   *m_ugh_sound;
-    SFXBuffer   *m_grab_sound;
-    SFXBuffer   *m_full_sound;
 
     virtual void steer(float, int) OVERRIDE;
     virtual void displayPenaltyWarning() OVERRIDE;

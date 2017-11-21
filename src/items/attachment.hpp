@@ -31,7 +31,6 @@ using namespace irr;
 class AbstractKart;
 class BareNetworkString;
 class Item;
-class SFXBase;
 
 /** This objects is permanently available in a kart and stores information
  *  about addons. If a kart has no attachment, this object will have the
@@ -100,12 +99,6 @@ private:
 
     /** Pseudo random number generator. */
     RandomGenerator   m_random;
-
-    /** Ticking sound for the bomb */
-    SFXBase          *m_bomb_sound;
-
-    /** Soung for exploding bubble gum shield */
-    SFXBase          *m_bubble_explode_sound;
     
 public:
           Attachment(AbstractKart* kart);

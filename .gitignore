@@ -72,3 +72,6 @@ lib/libogg
 lib/libvorbis
 lib/openal
 lib/openssl
+
+.kdev4
+*.kdev4

@@ -18,7 +18,6 @@
 
 #include "karts/explosion_animation.hpp"
 
-#include "audio/sfx_manager.hpp"
 #include "graphics/callbacks.hpp"
 #include "graphics/camera.hpp"
 #include "items/attachment.hpp"
@@ -77,7 +76,6 @@ ExplosionAnimation::ExplosionAnimation(AbstractKart *kart,
     m_xyz = m_kart->getXYZ();
     m_orig_xyz = m_xyz;
     m_normal = m_kart->getNormal();
-    m_kart->playCustomSFX(SFXManager::CUSTOM_EXPLODE);
     m_timer = m_kart->getKartProperties()->getExplosionDuration();
 
     // Non-direct hits will be only affected half as much.

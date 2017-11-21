@@ -17,7 +17,7 @@
 
 #include "states_screens/soccer_setup_screen.hpp"
 
-#include "audio/sfx_manager.hpp"
+
 #include "config/user_config.hpp"
 #include "graphics/render_info.hpp"
 #include "guiengine/widgets/bubble_widget.hpp"
@@ -77,7 +77,7 @@ void SoccerSetupScreen::eventCallback(Widget* widget, const std::string& name,
                     m_kart_view_info[i].view->setBadge(OK_BADGE);
                 }
             }
-            SFXManager::get()->quickSound( "wee" );
+
             m_schedule_continue = true;
         }
         else
@@ -358,7 +358,7 @@ GUIEngine::EventPropagation SoccerSetupScreen::filterActions(PlayerAction action
                                             KART_CONFIRMATION_ROTATION_SPEED);
             m_kart_view_info[playerId].view->setBadge(OK_BADGE);
             m_kart_view_info[playerId].view->unsetBadge(BAD_BADGE);
-            SFXManager::get()->quickSound( "wee" );
+
         }
 
         if (areAllKartsConfirmed())

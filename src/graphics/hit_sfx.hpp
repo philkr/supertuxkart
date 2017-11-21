@@ -22,8 +22,6 @@
 #include "graphics/hit_effect.hpp"
 #include "utils/cpp2011.hpp"
 
-class SFXBase;
-
 /**
   * \ingroup graphics
   */
@@ -31,7 +29,6 @@ class HitSFX : public HitEffect
 {
 private:
     /** The sfx to play. */
-    SFXBase*       m_sfx;
 
 public:
          HitSFX(const Vec3& coord, const char* explosion_sound);

@@ -22,7 +22,6 @@
 #include <stdio.h>
 #include <sstream>
 
-#include "audio/music_information.hpp"
 #include "io/file_manager.hpp"
 #include "io/xml_node.hpp"
 #include "items/item.hpp"
@@ -39,15 +38,11 @@ float STKConfig::UNDEFINED = -99.9f;
 STKConfig::STKConfig()
 {
     m_has_been_loaded         = false;
-    m_title_music             = NULL;
     m_default_kart_properties = new KartProperties();
 }   // STKConfig
 //-----------------------------------------------------------------------------
 STKConfig::~STKConfig()
 {
-    if(m_title_music)
-        delete m_title_music;
-
     if(m_default_kart_properties)
         delete m_default_kart_properties;
 
@@ -173,7 +168,6 @@ void STKConfig::init_defaults()
     m_replay_delta_angle         = -100;
     m_replay_delta_pos2          = -100;
     m_replay_dt                  = -100;
-    m_title_music                = NULL;
     m_enable_networking          = true;
     m_smooth_normals             = false;
     m_same_powerup_mode          = POWERUP_MODE_ONLY_IF_SAME;
@@ -281,9 +275,6 @@ void STKConfig::getAllData(const XMLNode * root)
         music_node->get("title", &title_music);
         assert(title_music.size() > 0);
         title_music = file_manager->getAsset(FileManager::MUSIC, title_music);
-        m_title_music = MusicInformation::create(title_music);
-        if(!m_title_music)
-            Log::error("StkConfig", "Cannot load title music : %s", title_music.c_str());
     }
 
     if(const XMLNode *skidmarks_node = root->getNode("skid-marks"))

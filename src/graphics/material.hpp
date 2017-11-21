@@ -36,7 +36,6 @@ namespace irr
 using namespace irr;
 
 class XMLNode;
-class SFXBase;
 class ParticleKind;
 
 /**
@@ -283,7 +282,6 @@ public:
 
     void unloadTexture();
 
-    void  setSFXSpeed(SFXBase *sfx, float speed, bool should_be_paused) const;
     void  setMaterialProperties(video::SMaterial *m, scene::IMeshBuffer* mb);
     void  adjustForFog(scene::ISceneNode* parent, video::SMaterial *m, 
                        bool use_fog) const;

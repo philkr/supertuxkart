@@ -19,8 +19,6 @@
 
 #include "karts/kart.hpp"
 
-#include "audio/sfx_manager.hpp"
-#include "audio/sfx_base.hpp"
 #include "challenges/challenge_status.hpp"
 #include "challenges/unlock_manager.hpp"
 #include "config/player_manager.hpp"
@@ -169,24 +167,6 @@ Kart::Kart (const std::string& ident, unsigned int world_kart_id,
             m_custom_sounds[n] = SFXManager::get()->newSFX(id);
         }
     }*/
-
-    m_horn_sound = SFXManager::get()->getBuffer("horn");
-    m_crash_sounds[0] = SFXManager::get()->getBuffer("crash");
-    m_crash_sounds[1] = SFXManager::get()->getBuffer("crash2");
-    m_crash_sounds[2] = SFXManager::get()->getBuffer("crash3");
-    m_goo_sound = SFXManager::get()->getBuffer("goo");
-    m_boing_sound = SFXManager::get()->getBuffer("boing");
-
-    m_engine_sound  = SFXManager::get()->createSoundSource(m_kart_properties->getEngineSfxType());
-    
-    for (int i = 0; i < EMITTER_COUNT; i++)
-        m_emitters[i] = SFXManager::get()->createSoundSource("crash");
-
-    m_skid_sound    = SFXManager::get()->createSoundSource( "skid"  );
-    m_nitro_sound   = SFXManager::get()->createSoundSource( "nitro" );
-    m_terrain_sound          = NULL;
-    m_previous_terrain_sound = NULL;
-
 }   // Kart
 
 // -----------------------------------------------------------------------------
@@ -205,18 +185,7 @@ void Kart::init(RaceManager::KartType type)
         // players have louder sounds than AIs
         if (type == RaceManager::KT_PLAYER)
             factor = std::min(1.0f, race_manager->getNumLocalPlayers()/2.0f);
-
-        for (int i = 0; i < EMITTER_COUNT; i++)
-            m_emitters[i]->setVolume(factor);
-
-        m_skid_sound->setVolume(factor);
-        m_nitro_sound->setVolume(factor);
     }   // if getNumLocalPlayers > 1
-
-    if(!m_engine_sound)
-    {
-        Log::error("Kart","Could not allocate a sfx object for the kart. Further errors may ensue!");
-    }
 
 
 #ifdef SERVER_ONLY
@@ -258,16 +227,7 @@ Kart::~Kart()
             SFXManager::get()->deleteSFX(m_custom_sounds[n]);
     }*/
 
-    m_engine_sound->deleteSFX();
-    m_skid_sound  ->deleteSFX();
-
-    for (int i = 0; i < EMITTER_COUNT; i++)
-        m_emitters[i]->deleteSFX();
-
-    m_nitro_sound ->deleteSFX();
     delete m_kart_gfx;
-    if(m_terrain_sound)          m_terrain_sound->deleteSFX();
-    if(m_previous_terrain_sound) m_previous_terrain_sound->deleteSFX();
     if(m_collision_particles)    delete m_collision_particles;
     if(m_slipstream)             delete m_slipstream;
     if(m_attachment)             delete m_attachment;
@@ -377,20 +337,6 @@ void Kart::reset()
     if(m_body)
         m_body->setDamping(m_kart_properties->getStabilityChassisLinearDamping(),
                            m_kart_properties->getStabilityChassisAngularDamping());
-
-    if(m_terrain_sound)
-    {
-        m_terrain_sound->deleteSFX();
-        m_terrain_sound = NULL;
-    }
-    if(m_previous_terrain_sound)
-    {
-        m_previous_terrain_sound->deleteSFX();
-        m_previous_terrain_sound = NULL;
-    }
-
-    if(m_engine_sound)
-        m_engine_sound->stop();
 
     m_controls.reset();
     m_slipstream->reset();
@@ -764,29 +710,6 @@ void Kart::flyDown()
  */
 void Kart::startEngineSFX()
 {
-    if(!m_engine_sound)
-        return;
-
-    // In multiplayer mode, sounds are NOT positional (because we have
-    // multiple listeners) so the engine sounds of all AIs is constantly
-    // heard. So reduce volume of all sounds.
-    if (race_manager->getNumLocalPlayers() > 1)
-    {
-        const int np = race_manager->getNumLocalPlayers();
-        const int nai = race_manager->getNumberOfKarts() - np;
-
-        // player karts twice as loud as AIs toghether
-        const float players_volume = (np * 2.0f) / (np*2.0f + np);
-
-        if (m_controller->isLocalPlayerController())
-            m_engine_sound->setVolume( players_volume / np );
-        else
-            m_engine_sound->setVolume( (1.0f - players_volume) / nai );
-    }
-
-    m_engine_sound->setSpeed(0.6f);
-    m_engine_sound->setLoop(true);
-    m_engine_sound->play();
 }   // startEngineSFX
 
 //-----------------------------------------------------------------------------
@@ -1034,10 +957,6 @@ void Kart::collectedItem(Item *item, int add_info)
                                  m_kart_properties->getBubblegumSpeedFraction() ,
                                  m_kart_properties->getBubblegumFadeInTime(),
                                  m_bubblegum_time);
-        getNextEmitter()->play(getXYZ(), m_goo_sound);
-
-        // Play appropriate custom character sound
-        playCustomSFX(SFXManager::CUSTOM_GOO);
         break;
     default        : break;
     }   // switch TYPE
@@ -1193,8 +1112,6 @@ void Kart::eliminate()
 
     m_kart_gfx->setCreationRateAbsolute(KartGFX::KGFX_TERRAIN, 0);
     m_kart_gfx->setGFXInvisible();
-    if (m_engine_sound)
-        m_engine_sound->stop();
 
     m_eliminated = true;
 
@@ -1365,12 +1282,6 @@ void Kart::update(float dt)
         if (m_custom_sounds[n] != NULL) m_custom_sounds[n]->position   ( getXYZ() );
     }
      */
-
-    for (int i = 0; i < EMITTER_COUNT; i++)
-        m_emitters[i]->setPosition(getXYZ());
-
-    m_skid_sound->setPosition   ( getXYZ() );
-    m_nitro_sound->setPosition  ( getXYZ() );
 
     // Check if a kart is (nearly) upside down and not moving much -->
     // automatic rescue
@@ -1692,72 +1603,6 @@ void Kart::setSquash(float time, float slowdown)
  */
 void Kart::handleMaterialSFX(const Material *material)
 {
-    // If a terrain specific sfx is already being played, when a new
-    // terrain is entered, an old sfx should be finished (once, not
-    // looped anymore of course). The m_terrain_sound is then copied
-    // to a m_previous_terrain_sound, for which looping is disabled.
-    // In case that three sfx needed to be played (i.e. a previous is
-    // playing, a current is playing, and a new terrain with sfx is
-    // entered), the oldest (previous) sfx is stopped and deleted.
-
-    // FIXME: if there are already two sfx playing, don't add another
-    // one. This should reduce the performance impact when driving 
-    // on the bridge in Cocoa.
-    if(getLastMaterial()!=material && !m_previous_terrain_sound)
-    {
-        // First stop any previously playing terrain sound
-        // and remove it, so that m_previous_terrain_sound
-        // can be used again.
-        if(m_previous_terrain_sound)
-        {
-            m_previous_terrain_sound->deleteSFX();
-        }
-        m_previous_terrain_sound = m_terrain_sound;
-        if(m_previous_terrain_sound)
-            m_previous_terrain_sound->setLoop(false);
-
-        const std::string &s = material->getSFXName();
-
-        // In multiplayer mode sounds are NOT positional, because we have
-        // multiple listeners. This would make the sounds of all AIs be
-        // audible at all times. So silence AI karts.
-        if (s.size()!=0 && (race_manager->getNumPlayers()==1 ||
-                            m_controller->isLocalPlayerController()  ) )
-        {
-            m_terrain_sound = SFXManager::get()->createSoundSource(s);
-            m_terrain_sound->play();
-            m_terrain_sound->setLoop(true);
-        }
-        else
-        {
-            m_terrain_sound = NULL;
-        }
-    }
-
-    if(m_previous_terrain_sound &&
-        m_previous_terrain_sound->getStatus()==SFXBase::SFX_STOPPED)
-    {
-        // We don't modify the position of m_previous_terrain_sound
-        // anymore, so that it keeps on playing at the place where the
-        // kart left the material.
-        m_previous_terrain_sound->deleteSFX();
-        m_previous_terrain_sound = NULL;
-    }
-
-    bool m_schedule_pause = m_flying ||
-                        dynamic_cast<RescueAnimation*>(getKartAnimation()) ||
-                        dynamic_cast<ExplosionAnimation*>(getKartAnimation());
-
-    // terrain sound is not necessarily a looping sound so check its status before
-    // setting its speed, to avoid 'ressuscitating' sounds that had already stopped
-    if(m_terrain_sound &&
-      (m_terrain_sound->getStatus()==SFXBase::SFX_PLAYING ||
-       m_terrain_sound->getStatus()==SFXBase::SFX_PAUSED))
-    {
-        m_terrain_sound->setPosition(getXYZ());
-        material->setSFXSpeed(m_terrain_sound, m_speed, m_schedule_pause);
-    }
-
 }   // handleMaterialSFX
 
 //-----------------------------------------------------------------------------
@@ -1867,24 +1712,6 @@ void Kart::handleMaterialGFX(float dt)
     else if (distance < 4.0f) ratio = (4.0f-distance)*0.5f;
     else                      ratio = -1.0f;  // No more particles
     m_kart_gfx->setCreationRateRelative(KartGFX::KGFX_TERRAIN, ratio);
-
-    // Play special sound effects for this terrain
-    // -------------------------------------------
-    const std::string &s = surface_material->getSFXName();
-    if (s != "" && !dynamic_cast<RescueAnimation*>(getKartAnimation())&&
-        (m_terrain_sound == NULL ||
-         m_terrain_sound->getStatus() == SFXBase::SFX_STOPPED))
-    {
-        if (m_previous_terrain_sound) m_previous_terrain_sound->deleteSFX();
-        m_previous_terrain_sound = m_terrain_sound;
-        if(m_previous_terrain_sound)
-            m_previous_terrain_sound->setLoop(false);
-
-        m_terrain_sound = SFXManager::get()->createSoundSource(s);
-        m_terrain_sound->play();
-        m_terrain_sound->setLoop(false);
-    }
-
 }   // handleMaterialGFX
 
 //-----------------------------------------------------------------------------
@@ -1944,7 +1771,6 @@ void Kart::handleZipper(const Material *material, bool play_sound)
                                      max_speed_increase, speed_gain,
                                      engine_force, duration, fade_out_time);
     // Play custom character sound (weee!)
-    playCustomSFX(SFXManager::CUSTOM_ZIPPER);
     m_controller->handleZipper(play_sound);
 }   // handleZipper
 
@@ -1971,34 +1797,23 @@ void Kart::updateNitro(float dt)
     bool increase_speed = (m_controls.getNitro() && isOnGround());
     if (!increase_speed && m_min_nitro_time <= 0.0f)
     {
-        if(m_nitro_sound->getStatus() == SFXBase::SFX_PLAYING)
-            m_nitro_sound->stop();
         return;
     }
 
     m_collected_energy -= dt * m_kart_properties->getNitroConsumption();
     if (m_collected_energy < 0)
     {
-        if(m_nitro_sound->getStatus() == SFXBase::SFX_PLAYING)
-            m_nitro_sound->stop();
         m_collected_energy = 0;
         return;
     }
 
     if (increase_speed)
     {
-        if(m_nitro_sound->getStatus() != SFXBase::SFX_PLAYING)
-            m_nitro_sound->play();
         m_max_speed->increaseMaxSpeed(MaxSpeed::MS_INCREASE_NITRO,
                                      m_kart_properties->getNitroMaxSpeedIncrease(),
                                      m_kart_properties->getNitroEngineForce(),
                                      m_kart_properties->getNitroDuration(),
                                      m_kart_properties->getNitroFadeOutTime());
-    }
-    else
-    {
-        if(m_nitro_sound->getStatus() == SFXBase::SFX_PLAYING)
-            m_nitro_sound->stop();
     }
 }   // updateNitro
 
@@ -2201,23 +2016,6 @@ void Kart::playCrashSFX(const Material* m, AbstractKart *k)
             
             if (volume > max_volume) { volume = max_volume; }
             else if (volume < min_volume) { volume = min_volume; }
-
-            SFXBase* crash_sound_emitter = getNextEmitter();
-            crash_sound_emitter->setVolume(volume);
-            
-            // In case that the sfx is longer than 0.5 seconds, only play it if
-            // it's not already playing.
-            if (isShielded() || (k != NULL && k->isShielded()))
-            {
-                crash_sound_emitter->play(getXYZ(), m_boing_sound);
-            }
-            else
-            {
-                int idx = rand() % CRASH_SOUND_COUNT;
-
-                SFXBuffer* buffer = m_crash_sounds[idx];
-                crash_sound_emitter->play(getXYZ(), buffer);
-            }
         }    // if lin_vel > 0.555
     }   // if m_bounce_back_time <= 0
 }   // playCrashSFX
@@ -2227,12 +2025,6 @@ void Kart::playCrashSFX(const Material* m, AbstractKart *k)
  */
 void Kart::beep()
 {
-    // If the custom horn can't play (isn't defined) then play the default one
-    if (!playCustomSFX(SFXManager::CUSTOM_HORN))
-    {
-        getNextEmitter()->play(getXYZ(), m_horn_sound);
-    }
-
 } // beep
 
 // -----------------------------------------------------------------------------
@@ -2335,17 +2127,6 @@ void Kart::updatePhysics(float dt)
     m_skidding->update(dt, isOnGround(), m_controls.getSteer(),
                        m_controls.getSkidControl());
     m_vehicle->setVisualRotation(m_skidding->getVisualSkidRotation());
-    if(( m_skidding->getSkidState() == Skidding::SKID_ACCUMULATE_LEFT ||
-         m_skidding->getSkidState() == Skidding::SKID_ACCUMULATE_RIGHT  ) &&
-        m_skidding->getGraphicalJumpOffset()==0)
-    {
-        if(m_skid_sound->getStatus()!=SFXBase::SFX_PLAYING && !isWheeless())
-            m_skid_sound->play(getXYZ());
-    }
-    else if(m_skid_sound->getStatus()==SFXBase::SFX_PLAYING)
-    {
-        m_skid_sound->stop();
-    }
 
     float steering = getMaxSteerAngle() * m_skidding->getSteeringFraction();
     m_vehicle->setSteeringValue(steering, 0);
@@ -2382,37 +2163,6 @@ void Kart::updatePhysics(float dt)
  */
 void Kart::updateEngineSFX(float dt)
 {
-    // when going faster, use higher pitch for engine
-    if(!m_engine_sound || !SFXManager::get()->sfxAllowed())
-        return;
-
-    if(isOnGround())
-    {
-        float max_speed = m_kart_properties->getEngineMaxSpeed();
-
-        // Engine noise is based half in total speed, half in fake gears:
-        // With a sawtooth graph like /|/|/| we get 3 even spaced gears,
-        // ignoring the gear settings from stk_config, but providing a
-        // good enough brrrBRRRbrrrBRRR sound effect. Speed factor makes
-        // it a "staired sawtooth", so more acoustically rich.
-        float f = max_speed > 0 ? m_speed/max_speed : 1.0f;
-        // Speed at this stage is not yet capped, reduce the amount beyond 1
-        if (f> 1.0f) f = 1.0f + (1.0f-1.0f/f);
-
-        float fc = f;
-        if (fc>1.0f) fc = 1.0f;
-        float gears = 3.0f * fmod(fc, 0.333334f);
-        assert(!std::isnan(f));
-        m_last_factor_engine_sound = (0.9f*f + gears) * 0.35f;
-        m_engine_sound->setSpeedPosition(0.6f + m_last_factor_engine_sound, getXYZ());
-    }
-    else
-      {
-        // When flying, reduce progressively the sound engine (since we can't accelerate)
-        m_last_factor_engine_sound *= (1.0f-0.1f*dt);
-        m_engine_sound->setSpeedPosition(0.6f + m_last_factor_engine_sound, getXYZ());
-        if (m_speed < 0.1f) m_last_factor_engine_sound = 0.0f;
-      }
 }   // updateEngineSFX
 
 //-----------------------------------------------------------------------------
@@ -2724,13 +2474,6 @@ void Kart::kartIsInRestNow()
     m_kart_model->setDefaultSuspension();
 }   // kartIsInRestNow
 
-//-----------------------------------------------------------------------------
-
-SFXBase* Kart::getNextEmitter()
-{
-    m_emitter_id = (m_emitter_id + 1) % 3;
-    return m_emitters[m_emitter_id];
-}
 
 //-----------------------------------------------------------------------------
 /** Updates the graphics model. It is responsible for positioning the graphical
@@ -3030,7 +2773,6 @@ const Vec3& Kart::getNormal() const
 
 void Kart::playSound(SFXBuffer* buffer)
 {
-    getNextEmitter()->play(getXYZ(), buffer);
 }
 
 /* EOF */

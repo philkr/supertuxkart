@@ -34,7 +34,6 @@
 #include <map>
 
 class KartProperties;
-class MusicInformation;
 class XMLNode;
 
 /**
@@ -129,9 +128,6 @@ public:
      *  next kart. From this the actual number of points for each
      *  position is computed. */
     std::vector<int> m_score_increase;
-
-    /** Filename of the title music to play.*/
-    MusicInformation *m_title_music;
 
     /** Maximum time of a replay. */
     int m_replay_max_time;

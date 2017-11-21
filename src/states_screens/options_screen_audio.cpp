@@ -17,9 +17,9 @@
 
 #include "states_screens/options_screen_audio.hpp"
 
-#include "audio/music_manager.hpp"
-#include "audio/sfx_manager.hpp"
-#include "audio/sfx_base.hpp"
+
+
+
 #include "config/user_config.hpp"
 #include "guiengine/screen.hpp"
 #include "guiengine/widgets/check_box_widget.hpp"
@@ -71,12 +71,10 @@ void OptionsScreenAudio::init()
     SpinnerWidget* gauge = this->getWidget<SpinnerWidget>("sfx_volume");
     assert(gauge != NULL);
 
-    gauge->setValue( (int)(SFXManager::get()->getMasterSFXVolume()*10.0f) );
-
 
     gauge = this->getWidget<SpinnerWidget>("music_volume");
     assert(gauge != NULL);
-    gauge->setValue( (int)(music_manager->getMasterMusicVolume()*10.f) );
+//     gauge->setValue( (int)(music_manager->getMasterMusicVolume()*10.f) );
 
     // ---- music volume
     CheckBoxWidget* sfx = this->getWidget<CheckBoxWidget>("sfx_enabled");
@@ -129,23 +127,12 @@ void OptionsScreenAudio::eventCallback(Widget* widget, const std::string& name, 
         SpinnerWidget* w = dynamic_cast<SpinnerWidget*>(widget);
         assert(w != NULL);
 
-        music_manager->setMasterMusicVolume( w->getValue()/10.0f );
+//         music_manager->setMasterMusicVolume( w->getValue()/10.0f );
     }
     else if(name == "sfx_volume")
     {
-        static SFXBase* sample_sound = NULL;
-
         SpinnerWidget* w = dynamic_cast<SpinnerWidget*>(widget);
         assert(w != NULL);
-
-        if (sample_sound == NULL) sample_sound = SFXManager::get()->createSoundSource( "pre_start_race" );
-        sample_sound->setVolume(1);
-
-        SFXManager::get()->setMasterSFXVolume( w->getValue()/10.0f );
-        UserConfigParams::m_sfx_volume = w->getValue()/10.0f;
-
-        // play a sample sound to show the user what this volume is like
-        sample_sound->play();
     }
     else if(name == "music_enabled")
     {
@@ -154,21 +141,20 @@ void OptionsScreenAudio::eventCallback(Widget* widget, const std::string& name, 
         UserConfigParams::m_music = w->getState();
         Log::info("OptionsScreenAudio", "Music is now %s", ((bool) UserConfigParams::m_music) ? "on" : "off");
 
-        if(w->getState() == false)
-            music_manager->stopMusic();
-        else
-            music_manager->startMusic();
+//         if(w->getState() == false)
+//             music_manager->stopMusic();
+//         else
+//             music_manager->startMusic();
     }
     else if(name == "sfx_enabled")
     {
         CheckBoxWidget* w = dynamic_cast<CheckBoxWidget*>(widget);
 
         UserConfigParams::m_sfx = w->getState();
-        SFXManager::get()->toggleSound(UserConfigParams::m_sfx);
 
         if (UserConfigParams::m_sfx)
         {
-            SFXManager::get()->quickSound("horn");
+
         }
     }
 }   // eventCallback

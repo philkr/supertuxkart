@@ -17,7 +17,7 @@
 
 #include "states_screens/online_profile_servers.hpp"
 
-#include "audio/sfx_manager.hpp"
+
 #include "config/player_manager.hpp"
 #include "guiengine/engine.hpp"
 #include "guiengine/scalable_font.hpp"
@@ -146,7 +146,7 @@ void OnlineProfileServers::doQuickPlay()
     XMLRequest *join_request = new RequestConnection::ServerJoinRequest();
     if (!join_request)
     {
-        SFXManager::get()->quickSound("anvil");
+
         return;
     }
 
@@ -165,7 +165,7 @@ void OnlineProfileServers::doQuickPlay()
     }
     else
     {
-        SFXManager::get()->quickSound("anvil");
+
     }
 }   // doQuickPlay
 

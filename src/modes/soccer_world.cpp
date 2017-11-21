@@ -18,8 +18,6 @@
 #include "modes/soccer_world.hpp"
 
 #include "main_loop.hpp"
-#include "audio/music_manager.hpp"
-#include "audio/sfx_base.hpp"
 #include "config/user_config.hpp"
 #include "io/file_manager.hpp"
 #include "graphics/central_settings.hpp"
@@ -68,8 +66,6 @@ SoccerWorld::SoccerWorld() : WorldWithRank()
  */
 SoccerWorld::~SoccerWorld()
 {
-    m_goal_sound->deleteSFX();
-
     delete m_ball_track_sector;
     m_ball_track_sector = NULL;
 }   // ~SoccerWorld
@@ -89,7 +85,6 @@ void SoccerWorld::init()
     m_ball = NULL;
     m_ball_body = NULL;
     m_goal_target = race_manager->getMaxGoal();
-    m_goal_sound = SFXManager::get()->createSoundSource("goal_scored");
 
     Track *track = Track::getCurrentTrack();
     if (track->hasNavMesh())
@@ -144,12 +139,6 @@ void SoccerWorld::reset()
     m_blue_kdm.clear();
     m_ball_heading = 0.0f;
     m_ball_invalid_timer = 0.0f;
-
-    if (m_goal_sound != NULL &&
-        m_goal_sound->getStatus() == SFXBase::SFX_PLAYING)
-    {
-        m_goal_sound->stop();
-    }
 
     if (Track::getCurrentTrack()->hasNavMesh())
     {
@@ -227,7 +216,6 @@ void SoccerWorld::onCheckGoalTriggered(bool first_goal)
         return;
 
     setPhase(WorldStatus::GOAL_PHASE);
-    m_goal_sound->play();
     if (m_ball_hitter != -1)
     {
         if (UserConfigParams::m_arena_ai_stats)

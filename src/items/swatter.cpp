@@ -26,8 +26,6 @@
 
 #include "items/swatter.hpp"
 #include "achievements/achievement_info.hpp"
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_manager.hpp"
 #include "config/player_manager.hpp"
 #include "graphics/explosion.hpp"
 #include "graphics/irr_driver.hpp"
@@ -85,11 +83,6 @@ Swatter::Swatter(AbstractKart *kart, bool was_bomb,
     {
         m_scene_node->setAnimationSpeed(0);
     }
-
-    if (kart->getIdent() == "nolok")
-        m_swat_sound = SFXManager::get()->createSoundSource("hammer");
-    else
-        m_swat_sound = SFXManager::get()->createSoundSource("swatter");
 }   // Swatter
 
 // ----------------------------------------------------------------------------
@@ -101,10 +94,6 @@ Swatter::~Swatter()
     {
         irr_driver->removeNode(m_bomb_scene_node);
         m_bomb_scene_node = NULL;
-    }
-    if (m_swat_sound)
-    {
-        m_swat_sound->deleteSFX();
     }
 }   // ~Swatter
 
@@ -177,10 +166,6 @@ bool Swatter::updateAndTestFinished(float dt)
                     m_scene_node->setCurrentFrame(0.0f);
                     m_scene_node->setLoopMode(false);
                     m_scene_node->setAnimationSpeed(SWATTER_ANIMATION_SPEED);
-
-                    // Play swat sound
-                    m_swat_sound->setPosition(swatter_pos);
-                    m_swat_sound->play();
                 }
             }
             break;

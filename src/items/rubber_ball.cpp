@@ -18,8 +18,6 @@
 
 #include "items/rubber_ball.hpp"
 
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_manager.hpp"
 #include "config/stk_config.hpp"
 #include "config/user_config.hpp"
 #include "io/xml_node.hpp"
@@ -84,7 +82,6 @@ RubberBall::RubberBall(AbstractKart *kart)
     m_height_timer       = 0.0f;
     m_interval           = m_st_interval;
     m_current_max_height = m_max_height;
-    m_ping_sfx           = SFXManager::get()->createSoundSource("ball_bounce");
     // Just init the previoux coordinates with some value that's not getXYZ()
     m_previous_xyz       = m_owner->getXYZ();
     m_previous_height    = 2.0f;  //
@@ -112,9 +109,6 @@ RubberBall::RubberBall(AbstractKart *kart)
  */
 RubberBall::~RubberBall()
 {
-    if(m_ping_sfx->getStatus()==SFXBase::SFX_PLAYING)
-        m_ping_sfx->stop();
-    m_ping_sfx->deleteSFX();
     CheckManager::get()->removeFlyableFromCannons(this);
 }   // ~RubberBall
 
@@ -555,11 +549,6 @@ float RubberBall::updateHeight()
     if(m_height_timer>m_interval)
     {
         m_height_timer -= m_interval;
-        if(m_ping_sfx->getStatus()!=SFXBase::SFX_PLAYING)
-        {
-            m_ping_sfx->setPosition(getXYZ());
-            m_ping_sfx->play();
-        }
 
         if(m_fast_ping)
         {

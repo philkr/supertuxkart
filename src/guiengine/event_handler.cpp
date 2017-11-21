@@ -17,8 +17,6 @@
 
 #include "guiengine/event_handler.hpp"
 
-#include "audio/music_manager.hpp"
-#include "audio/sfx_manager.hpp"
 #include "config/user_config.hpp"
 #include "graphics/irr_driver.hpp"
 #include "graphics/stk_tex_manager.hpp"

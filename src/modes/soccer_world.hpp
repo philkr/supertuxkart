@@ -263,8 +263,6 @@ private:
     int m_goal_target;
     bool m_count_down_reached_zero;
 
-    SFXBase *m_goal_sound;
-
     /** Timer for displaying goal text*/
     float m_goal_timer;
     float m_ball_invalid_timer;

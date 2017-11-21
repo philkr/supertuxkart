@@ -25,7 +25,6 @@
 #include "tracks/track_sector.hpp"
 
 class AbstractKart;
-class SFXBase;
 
 /**
   * \ingroup items
@@ -184,7 +183,6 @@ private:
     unsigned int m_tunnel_count;
 
     /** A 'ping' sound effect to be played when the ball hits the ground. */
-    SFXBase     *m_ping_sfx;
 
     void         computeTarget();
     void         updateDistanceToTarget();

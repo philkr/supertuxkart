@@ -19,9 +19,6 @@
 
 #include "achievements/achievements_manager.hpp"
 #include "config/player_manager.hpp"
-#include "audio/music_manager.hpp"
-#include "audio/sfx_base.hpp"
-#include "audio/sfx_manager.hpp"
 #include "config/user_config.hpp"
 #include "karts/abstract_kart.hpp"
 #include "karts/controller/controller.hpp"
@@ -46,7 +43,6 @@
  */
 LinearWorld::LinearWorld() : WorldWithRank()
 {
-    m_last_lap_sfx         = SFXManager::get()->createSoundSource("last_lap_fanfare");
     m_last_lap_sfx_played  = false;
     m_last_lap_sfx_playing = false;
     m_fastest_lap          = 9999999.9f;
@@ -76,7 +72,6 @@ void LinearWorld::init()
  */
 LinearWorld::~LinearWorld()
 {
-    m_last_lap_sfx->deleteSFX();
 }   // ~LinearWorld
 
 //-----------------------------------------------------------------------------
@@ -155,13 +150,6 @@ void LinearWorld::update(float dt)
     // run generic parent stuff that applies to all modes. It
     // especially updates the kart positions.
     WorldWithRank::update(dt);
-
-    if (m_last_lap_sfx_playing &&
-        m_last_lap_sfx->getStatus() != SFXBase::SFX_PLAYING)
-    {
-        music_manager->resetTemporaryVolume();
-        m_last_lap_sfx_playing = false;
-    }
 
     const unsigned int kart_amount = getNumKarts();
 
@@ -290,16 +278,15 @@ void LinearWorld::newLap(unsigned int kart_index)
         {
             if (UserConfigParams::m_music)
             {
-                m_last_lap_sfx->play();
                 m_last_lap_sfx_played = true;
                 m_last_lap_sfx_playing = true;
 
                 // In case that no music is defined
-                if(music_manager->getCurrentMusic() &&
-                    music_manager->getMasterMusicVolume() > 0.2f)
-                {
-                    music_manager->setTemporaryVolume(0.2f);
-                }
+// //                 if(music_manager->getCurrentMusic() &&
+// //                     music_manager->getMasterMusicVolume() > 0.2f)
+// //                 {
+// //                     music_manager->setTemporaryVolume(0.2f);
+// //                 }
             }
             else
             {
@@ -755,7 +742,7 @@ void LinearWorld::updateRacePosition()
             kart_info.m_race_lap == race_manager->getNumLaps() - 1 &&
             useFastMusicNearEnd()                                       )
         {
-            music_manager->switchToFastMusic();
+//             music_manager->switchToFastMusic();
             m_faster_music_active=true;
         }
     }   // for i<kart_amount

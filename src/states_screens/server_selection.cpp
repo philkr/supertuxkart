@@ -17,7 +17,7 @@
 
 #include "states_screens/server_selection.hpp"
 
-#include "audio/sfx_manager.hpp"
+
 #include "guiengine/modaldialog.hpp"
 #include "network/servers_manager.hpp"
 #include "online/xml_request.hpp"
@@ -226,7 +226,7 @@ void ServerSelection::onUpdate(float dt)
         }
         else
         {
-            SFXManager::get()->quickSound("anvil");
+
             new MessageDialog(m_refresh_request->getInfo());
             m_server_list_widget->clear();
         }
