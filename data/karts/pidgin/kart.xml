@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Pidgin"
+      version           = "3"
+      model-file        = "pidgin.spm"
+      icon-file         = "pidginicon.png"
+      minimap-icon-file = "pidginicon.png"
+      shadow-file       = "pidginshadow.png"
+      type              = "heavy"
+      groups            = "standard"
+      rgb               = "0.42 0.25 0.46" >
+  <sounds engine = "large"/>
+  <animations left = "9"
+              straight = "19"
+              right = "29"
+              start-winning = "69"
+              end-winning = "89"
+              start-losing = "100"
+              start-losing-loop = "110"
+              end-losing = "120"/>
+  <wheels>
+    <front-left position = "-0.371461 0.124264 0.303000"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.372461 0.124264 0.303000"
+                 model    = "wheel-front-right.spm"       />
+    <rear-left position = "-0.398806 0.170913 -0.438000"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.398760 0.170913 -0.438000"
+                 model    = "wheel-rear-right.spm"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "-0.161255 0.191291 -0.659415" />
+    <nitro-emitter-b position = "0.159044 0.191291 -0.659415" />
+  </nitro-emitter>
+  <headlights>
+    <object position="-0.147122 0.112550 0.487146"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_1.spm"/>
+    <object position="0.153012 0.107950 0.491304"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_2.spm"/>
+  </headlights>
+  <hat position="-0.008784 0.567582 -0.153440"
+       rotation="-9.040618 -4.054806 1.098720"
+       scale="1.000000 1.000010 1.000000"
+       bone="Head"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>

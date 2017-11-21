@@ -1,0 +1,32 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Adiumy Kart for SuperTuxKart
+Upstream-Contact: Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files:
+ *.spm *.xml
+Copyright:
+ Copyright 2009 abejones
+ Copyright 2009, 2010 STKRudy85
+ Copyright 2010 Xapantu
+ Copyright 2015 Vincent Lejeune
+ Copyright 2014, 2017 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+ Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
+License: CC-BY-SA 3.0
+Comment:
+ Original model by abejones. Animations created by STKRudy85, and
+ improved by Vincent Lejeune. Xapantu made small fixes to the kart.
+ Jean-Manuel Clémençon created a new texture and added headlights.
+
+Files: adiumyicon.png
+Copyright: Copyright 2010 Anthony "yeKcim" Carré <yeknan.free.fr>
+License: GPL 2.0
+
+Files: adiumyshadow.png adiumy.jpg
+Copyright: Copyright 2009 abejones
+License: CC-BY-SA 3.0
+
+Files: egg_gloss.png egg.png
+Copyright: Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 3.0

@@ -1,0 +1,16 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Aztec Girl Object for SuperTuxKart
+Upstream-Contact: Jean-Manual "samuncle" Clémençon <sam.un@protonmail.com>
+Source: https://supertuxkart.net
+License: ????
+
+Files:
+ stktex_aztekGirlBody_a.png
+ stktex_aztekGirlFace_a.png
+Copyright: Copyright 2014 Jean-Manuel Clémençon
+License: CC-BY-SA 4.0
+
+Files: *.b3d *.xml
+Copyright: ????
+License: ????
+Comment: Unknown source. Possibly by drex (author of swimsuit guy)

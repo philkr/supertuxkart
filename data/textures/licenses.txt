@@ -1,0 +1,80 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Textures for SuperTuxKart Assets
+Upstream-Contact:
+ Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+ Joerg "hiker" Henrichs <henrichsjoerg@gmail.com>
+ Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: Various
+
+Files: materials.xml
+Copyright: SuperTuxKart dev team
+License: Unknown
+Comment: Material infos, not sure if license is needed
+
+Files: ants.png
+Copyright: Jean-Manuel Clémençon
+License: CC-BY-SA 3.0
+Comment: Added by samuncle in 2013.
+
+Files: astro_turf.jpg
+Copyright: Copyright 2013 Totoplus62
+License: public-domain CC0
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=3774
+
+Files: nolok_character.png
+Copyright: Copyright 2009 Tobias "Tob" "Cheleb" Beyrer
+License: CC-BY-SA 3.0
+Comment: Originally part of Nolok kart
+
+Files: 
+ stk_animalPig_a.png
+ stk_terminalCode_a.png
+ stk_transcriptDataSignal_a.png
+ stkflag_pumpkin_a.png
+ stkflag_pumpkin_a_gloss.png
+ stklib_coniferSnow_a_low.png
+ stktex_puertoEncanto_a.png
+ stklib_jackOLantern_a.png
+ stklib_moonDecal_a.png
+Copyright: Copyright 2017 Jean-Manuel Clémençon
+License: CC-BY-SA 3.0
+
+Files: 
+ stkcrowd_ghost_a.png
+Copyright: Copyright 2017 Auria
+License: CC-BY-SA 3.0
+
+Files: stktex_generic_bambooB.png
+Copyright:
+ Copyright 2014 Anon
+ Copyright 2014 Jean-Manuel Clémençon
+License: CC-BY-SA 4.0
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=90&t=5726
+
+Files:
+ stk_generic_blackCeramic_a.png
+ stk_generic_pinkCeramic_a.png
+ stk_generic_redCeramic_a.png
+Copyright: Copyright 2014 Anon
+License: CC-BY-SA 4.0 CC-BY-SA 3.0 Unported
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=90&t=5726
+
+Files: tapis.png
+Copyright: Copyright 2009 Benjamin Arnaudet
+License: GPL ???
+Comment: Originally part of Gnu kart
+
+Files: explode.png
+Copyright: Copyright 2008-2010 MiniBjorn
+License: CC-BY-SA 3.0
+Comment: From License.txt
+
+Files: stkflag_nolokArmories_a.png
+Copyright: Copyright 2017 samuncle based on nolokicon.png by Anthony "yeKcim" Carré <yeknan.free.fr>
+License: GPL 2.0
+
+Files: stktex_monkey_a.png
+Copyright: Copyright 2011 Cédric "Céa" Archambault <https://plus.google.com/117805441573276168348>
+License: GPL ???
+

@@ -1,0 +1,42 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Sara the Racer Kart for SuperTuxKart
+Upstream-Contact: Jean-Manuel "samuncle" Clémençon
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: icon-sara.png
+Copyright: Copyright 2013 "betharatux1" (a.k.a. "Indro")
+License: ????
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923&start=25
+
+Files:
+ armor.png
+ hair.png
+ motif_gloss.png
+ motif.png
+ reactor_core_anim.png
+ saraEyes.png
+ shoes_gloves_gloss.png
+ shoes_gloves.png
+ turbinia_shadow.png
+ exhaust.spm
+ wheel-*.spm
+Copyright: Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 3.0
+
+Files:
+ turbinia_mainBody_gloss.png
+ turbinia_mainBody.png
+ sara?the?racer.spm
+ *.xml
+Copyright:
+ Copyright 2013, 2014 Jean-Manuel "samuncle" Clémençon
+ Copyright 2017 Néd J. "jymis" Édoire
+License: CC-BY-SA 3.0
+Comment: Headlights, mirrors, and taillights added by jymis.
+
+Files:
+ headlight_1.spm
+ headlight_2.spm
+Copyright: Copyright 2017 Néd J. "jymis" Édoire
+License: CC-BY-SA 3.0

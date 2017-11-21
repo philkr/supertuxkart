@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Konqi"
+      version           = "3"
+      model-file        = "konqi.spm"
+      icon-file         = "konqi_icon.png"
+      minimap-icon-file = "konqi_icon.png"
+      shadow-file       = "konqi_shadow.png"
+      type              = "medium"
+      groups            = "standard"
+      rgb               = "0.00 0.59 0.00" >
+  <sounds engine = "large"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              backpedal-left = "41"
+              backpedal = "61"
+              backpedal-right = "81"
+              start-jump = "82"
+              start-losing = "102"
+              end-jump = "102"
+              start-losing-loop = "126"
+              end-losing = "162"
+              start-winning = "163"
+              start-winning-loop = "182"
+              end-winning = "242"/>
+  <wheels>
+    <front-left position = "-0.341021 0.130025 0.576496"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.340696 0.130025 0.576496"
+                 model    = "wheel-front-right.spm"       />
+    <rear-left position = "-0.395999 0.175501 -0.548930"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.398000 0.175501 -0.548930"
+                 model    = "wheel-rear-right.spm"       />
+  </wheels>
+  <speed-weighted-objects>
+    <object position="0.004795 0.517095 -0.144847"
+            rotation="0.517850 0.000025 0.000245"
+            scale="1.000000 1.000000 1.000000"
+            bone="Neck"
+            speed-factor="1.500000"
+            model="konqi_scarf.spm"/>
+  </speed-weighted-objects>
+  <nitro-emitter>
+    <nitro-emitter-a position = "-0.059968 0.116539 -0.770299" />
+    <nitro-emitter-b position = "0.059507 0.116539 -0.770299" />
+  </nitro-emitter>
+  <headlights>
+    <object position="-0.000472 0.165755 0.854763"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            bone="kart"
+            model="headlight.spm"/>
+  </headlights>
+  <hat position="0.005280 0.815087 -0.145011"
+       rotation="-21.615901 -0.000000 0.000000"
+       scale="0.739843 0.739843 0.739843"
+       bone="Head"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>

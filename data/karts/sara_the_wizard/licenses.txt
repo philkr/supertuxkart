@@ -1,0 +1,40 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Sara the Wizard Kart for SuperTuxKart
+Upstream-Contact: Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: icon-sara.png
+Copyright: Copyright 2013 "betharatux1" (a.k.a. "Indro")
+License: ????
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923&start=25
+
+Files:
+ speed_weight_object.spm
+ dress_border_gloss.png
+ dress_border.png
+ dress_textile.png
+ hair.png
+ sara-shadow.png
+ saraEyes.png
+ stkkart_caterpillar.png
+ stkkart_detail.png
+ stkkart_leatherShoes_a.png
+ stkkart_snowMobileMain_gloss.png
+ stkkart_snowMobileMain.png
+ stkkart_textileSara_gloss.png
+ stkkart_textileSara.png
+ wheel-*.spm
+Copyright: Copyright 2014, 2015 Jean-Manuel "samuncle" Clémençon
+License: CC-BY-SA 3.0
+
+Files:
+ sara?the?wizard.spm
+ *.xml
+Copyright: Copyright 2013-2015 Jean-Manuel "samuncle" Clémençon
+License: CC-BY-SA 3.0
+
+Files: headlight.spm
+Copyright: Copyright 2017 Jean-Manuel "samuncle" Clémençon
+License: CC-BY-SA 3.0
+Comment: Headlights.

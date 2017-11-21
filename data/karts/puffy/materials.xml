@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="puffy.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="water-P.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="window.png" disable-z-write="Y" shader="alphablend"/>
+</materials>

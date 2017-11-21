@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Battle Island for SuperTuxKart
+Upstream-Contact: Iwan 'qubodup' Gabovitch <qubodup@gmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: *
+Copyright: Copyright 2011 Iwan 'qubodup' Gabovitch
+License: CC-BY-SA 3.0
+Comment:
+ leaves_dry1.png by Iwan 'qubodup' Gabovitch <qubodup@gmail.com> released under CC0/PD.
+ Based on many textures from Burningwell.org

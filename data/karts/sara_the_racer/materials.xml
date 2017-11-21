@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="armor.png" gloss-map="shoes_gloves_gloss.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="hair.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="motif.png" gloss-map="motif_gloss.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="shoes_gloves.png" gloss-map="shoes_gloves_gloss.png" colorizable="Y" colorization-factor="0.00"/>
+  <material name="turbinia_mainBody.png" gloss-map="turbinia_mainBody_gloss.png" colorizable="Y" colorization-factor="0.00"/>
+</materials>

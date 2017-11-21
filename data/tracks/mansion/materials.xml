@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="bugslight.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="additive"/>
+  <material name="carpet.png" backface-culling="N" ignore="Y"/>
+  <material name="clouds.png" fog="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="dead_tree.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="ghost.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="halo.png" fog="N" disable-z-write="Y"/>
+  <material name="iron-fence.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
+  <material name="jackolantern.png" fog="N"/>
+  <material name="jackolanternLight.png" fog="N"/>
+  <material name="l_lampsglass0.png" disable-z-write="Y"/>
+  <material name="lightHaloY.png" fog="N" disable-z-write="Y"/>
+  <material name="mansion_windows.png" disable-z-write="Y"/>
+  <material name="pix.png" shader="alphatest"/>
+  <material name="plants.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="roof-straw.png" backface-culling="N"/>
+  <material name="swamp.png" disable-z-write="Y" max-speed="0.90">
+    <particles base="swampDriving.xml" condition="drive skid"/>
+  </material>
+  <material name="torch.png" backface-culling="N"/>
+  <material name="tree_1Low.png" backface-culling="N" shader="alphatest"/>
+  <material name="wall.png" backface-culling="N"/>
+  <material name="water_light2.png" disable-z-write="Y" falling-effect="Y" water-splash="Y"/>
+  <material name="woodPost.png" backface-culling="N"/>
+</materials>

@@ -12,13 +12,9 @@ make*.bat
 __pycache__
 
 data/editor
-data/karts
-data/library
 data/models
 data/music
 data/sfx
-data/textures
-data/tracks
 data/wip-tracks
 data/.svn
 

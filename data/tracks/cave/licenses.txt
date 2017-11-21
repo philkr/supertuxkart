@@ -1,0 +1,14 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Cave X for SuperTuxKart
+Upstream-Contact: MacIO
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: *
+Copyright:
+ Copyright 2009 MacIO
+ Copyright 2009 MiniBjorn (New images, grass and retexturing)
+License: CC-BY-SA 3.0
+Comment:
+ sky.png taken from racktrack by thomas oppl (CC BY-SA 3.0)
+

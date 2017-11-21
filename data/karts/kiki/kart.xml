@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Kiki"
+      version           = "3"
+      model-file        = "kiki.spm"
+      icon-file         = "kiki_icon.png"
+      minimap-icon-file = "kiki_icon.png"
+      shadow-file       = "kiki_shadow.png"
+      type              = "light"
+      groups            = "standard"
+      rgb               = "0.01 0.72 1.00" >
+  <sounds engine = "small"/>
+  <animations selection-start = "0"
+              selection-end = "120"
+              left = "121"
+              straight = "141"
+              right = "161"
+              backpedal-left = "162"
+              backpedal = "182"
+              backpedal-right = "202"
+              start-winning = "203"
+              start-winning-loop = "224"
+              end-winning = "256"
+              start-losing = "257"
+              start-losing-loop = "275"
+              end-losing = "299"
+              start-jump = "300"
+              end-jump = "321"/>
+  <wheels>
+    <front-left position = "-0.219670 0.118839 0.402471"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.211957 0.118835 0.402471"
+                 model    = "wheel-front-right.spm"       />
+    <rear-left position = "-0.440670 0.163414 -0.266383"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.432957 0.163415 -0.266383"
+                 model    = "wheel-rear-right.spm"       />
+  </wheels>
+  <speed-weighted-objects>
+    <object position="0.002439 0.401483 -0.150821"
+            rotation="-64.629722 0.000015 0.000003"
+            scale="1.000000 1.000000 1.000000"
+            bone="hips"
+            speed-factor="4.000000"
+            model="kiki_tail.spm"/>
+    <object position="0.002428 0.224188 -0.844827"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            speed-factor="2.000000"
+            model="paintbrush.spm"/>
+    <object position="-0.217572 0.224188 -0.844827"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            speed-factor="2.000000"
+            model="paintbrush.spm"/>
+    <object position="0.222428 0.224188 -0.844827"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            speed-factor="2.000000"
+            model="paintbrush.spm"/>
+  </speed-weighted-objects>
+  <headlights>
+    <object position="0.000000 0.213923 0.729175"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="0.749093 0.749093 0.749093"
+            model="headlight.spm"/>
+  </headlights>
+  <hat position="0.001607 0.952466 -0.058139"
+       rotation="2.234933 0.000004 -0.000002"
+       scale="0.542276 0.542277 0.542277"
+       bone="head"/>
+</kart>

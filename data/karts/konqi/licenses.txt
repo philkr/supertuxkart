@@ -1,0 +1,33 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Konqi Kart for SuperTuxKart
+Upstream-Contact: Marianne Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+Comment: Some confusion about the real authors of some files (see below)
+
+Files: konqi_kart.jpg konqi_wheel.jpg konqi_shadow.png
+Copyright:
+ Copyright 2013 betharatux1
+ Copyright 2017 Benau
+License: GPL ???
+Comment:
+ We'll just assume that these are betharatux1's works... See License.txt file
+
+Files: konqi.jpg konqi_colorization_mask.png konqi_icon.png
+Copyright:
+ Copyright 2017 Benau
+License: CC-BY-SA 3.0
+
+Files: *.spm *.xml
+Copyright:
+ Copyright ???? Christian Framing
+ Copyright 2013 betharatux1 (Indro)
+ Copyright 2016 Marianne "Auria" Gagnon <auria.mg@gmail.com>
+ Copyright 2017 Benau
+ Copyright 2004-ish (?) Bastian Salmela
+License: (L)GPL ???
+Comment:
+ Very confusing licensing. The Konqi body seems to be originally
+ by basse (Bastian Salmela) but may actually be by betharatux1..?
+ Auria reduced the number of bones in the armature. Christian Framing
+ and betharatux1 both are credited with authorship of the go-kart
+ part. Not sure which is correct...

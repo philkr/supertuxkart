@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="_particle_sand.png" clampu="Y" clampv="Y" ignore="Y" shader="alphablend"/>
+  <material name="astro_turf.jpg">
+    <particles condition="skid" base="smoke.xml"/>
+  </material>
+  <material name="bow_tile.jpg">
+    <particles condition="skid drive" base="smoke.xml"/>
+  </material>
+  <material name="BurdockLeaf.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="FieldPlant2.png" backface-culling="N" disable-z-write="Y" ignore="Y" grass-speed="1.50" shader="grass"/>
+  <material name="flag.jpg" backface-culling="N"/>
+  <material name="foliage.png" backface-culling="N" clampv="Y" shader="grass" grass-speed="1.50" grass-amplitude="0.60"/>
+  <material name="golfball_baked.jpg" normal-map="golfball_baked_normal.png"/>
+  <material name="racetrack_blend-dark.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="GrassTall.png" backface-culling="N" disable-z-write="Y" ignore="Y" grass-speed="1.50" shader="grass"/>
+  <material name="Mint.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="city_grass.png" backface-culling="N" ignore="Y" grass-speed="1.50" shader="grass"/>
+  <material name="sand.jpg" max-speed="0.30">
+    <particles condition="skid drive" base="sand.xml"/>
+  </material>
+  <material name="seabed.jpg" falling-effect="Y" reset="Y"/>
+  <material name="StreamPlant.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="tarmac.jpg" slowdown-time="1.12" max-speed="0.95"/>
+  <material name="tree_1.png" backface-culling="N" disable-z-write="Y" shader="grass" grass-speed="1.50"/>
+  <material name="tree_noanim.png" backface-culling="N" disable-z-write="Y" grass-speed="1.50" shader="grass"/>
+  <material name="water.png" backface-culling="N" surface="Y" shader="alphablend">
+    <sfx filename="splash.ogg" min_speed="0.00" max_speed="0.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.30"/>
+    <particles condition="skid drive" base="splash.xml"/>
+  </material>
+  <material name="WhiteFlowerLeaves.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="WhiteFlowerSkin.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+</materials>

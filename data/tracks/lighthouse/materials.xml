@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="bulb.png" fog="N" backface-culling="N" disable-z-write="Y" shader="additive"/>
+  <material name="dynamic_clouds.png" fog="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="fence_chain.png" backface-culling="N" shader="alphatest"/>
+  <material name="grass-anim.png" backface-culling="N" ignore="Y" shader="grass" grass-speed="1.50"/>
+  <material name="grass-anim_death.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="grass" grass-speed="1.50"/>
+  <material name="light-1.png" fog="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="light.png" fog="N" disable-z-write="Y" ignore="Y" shader="additive"/>
+  <material name="lightHaloY.png" fog="N" backface-culling="N" disable-z-write="Y" shader="additive"/>
+  <material name="lighthousWindows_diff.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="metaldirt_diff.png" backface-culling="N"/>
+  <material name="plants.png" backface-culling="N" disable-z-write="Y" shader="grass" grass-speed="1.50"/>
+  <material name="racetrack_blend.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="sea-bed.jpg" falling-effect="Y" reset="Y"/>
+  <material name="sea.png" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="trail_diff.png" shader="alphatest"/>
+  <material name="tree_1.png" backface-culling="N" shader="grass" grass-speed="1.50"/>
+  <material name="tree_noanim.png" backface-culling="N" disable-z-write="Y" shader="alphatest"/>
+</materials>

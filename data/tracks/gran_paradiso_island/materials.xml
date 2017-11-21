@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="clouds.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="island_water.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="island_water_shadow.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="under_sea.png" shader="additive" disable-z-write="Y"/>
+  <material name="windows.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="windows_reflection.png" gloss-map="windows_reflection_gloss.png"/>
+</materials>

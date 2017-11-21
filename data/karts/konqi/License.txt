@@ -1,0 +1,18 @@
+By Indro a.k.a Betharatux1 :
+
+1.konqi vehicle texture up1.png
+2.konqi eye.png
+3.konqiv1 shadow.png
+4.konqiV2 wheel texture.png
+5.konqiV1-steertexture.png
+6.konqiV1-name.png
+7.Konqi v1 vehicle model 3D
+
+released under the Gnu General Public License (GPL)
+
+
+
+based on work by basse <basse@kimppu.org | www.kimppu.org/basse>, LGPL licence (konqi model)
+    KDE logo 3d : thanks for Ned J.
+    konqi_kerchief : modified color by betharatux1, from kongo "hanko.png" texture, based hanko.tga from original konqi source. are published under LGPL licence
+    colormap konqi.jpg : modified color by betharatux, based on work by basse, with modifications by Ned J.

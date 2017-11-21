@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Beastie"
+      version           = "3"
+      model-file        = "beastie.spm"
+      icon-file         = "beastie-icon.png"
+      minimap-icon-file = "beastie-icon.png"
+      shadow-file       = "beastie-shadow.png"
+      type              = "heavy"
+      groups            = "standard"
+      rgb               = "0.77 0.00 0.00" >
+  <sounds engine = "large"/>
+  <animations left = "20"
+              straight = "40"
+              right = "60"
+              start-winning = "80"
+              start-winning-loop = "90"
+              end-winning = "130"
+              start-losing = "140"
+              start-losing-loop = "150"
+              end-losing = "220"/>
+  <wheels>
+    <front-left position = "-0.336000 0.182370 0.363336"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.336000 0.182370 0.363336"
+                 model    = "wheel-front-right.spm"       />
+    <rear-left position = "-0.336000 0.182370 -0.480000"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.336000 0.182370 -0.480000"
+                 model    = "wheel-rear-right.spm"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.387257 0.615989 -0.635706" />
+    <nitro-emitter-b position = "-0.382115 0.615989 -0.635706" />
+  </nitro-emitter>
+  <headlights>
+    <object position="-0.110512 0.443639 0.651531"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_1.spm"/>
+    <object position="0.107967 0.443639 0.647146"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight_2.spm"/>
+  </headlights>
+  <hat position="-0.000000 0.757441 -0.020529"
+       rotation="-0.000015 -0.000027 0.000003"
+       scale="0.800000 0.800000 0.800000"
+       bone="Head"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>

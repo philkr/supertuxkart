@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<scene>
+  <track model="cave_track.spm" x="0" y="0" z="0"/>
+  <sun  xyz="0.32 77.01 -9.41" ambient="110 125 140"/>
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
+  <camera far="1000.0"/>
+  <item id="eBox.002" x="23.26" y="-16.71" z="-52.89" />
+  <item id="eBox.005" x="20.71" y="-16.71" z="4.60" />
+  <item id="eNitroSmall.001" x="-41.85" y="-17.47" z="-28.72" />
+  <item id="eNitroSmall.006" x="60.56" y="-7.90" z="16.60" />
+  <big-nitro id="eNitroSmall.007" x="63.72" y="-8.22" z="3.71" />
+  <item id="eNitroSmall.008" x="38.36" y="-18.06" z="-20.49" />
+  <big-nitro id="eStart.001" x="33.96" y="-15.46" z="-48.45" h="90.00" />
+  <item id="eStart.003" x="-25.22" y="-15.46" z="-20.22" h="-90.00" />
+  <light xyz="-32.86 -11.04 -50.17" id="Point" distance="35.00" energy="10.00" color="255 207 187">
+  </light>
+  <light xyz="52.05 -11.04 -4.50" id="Point.001" distance="35.00" energy="10.00" color="255 207 187">
+  </light>
+  <light xyz="-40.34 -11.04 41.00" id="Point.002" distance="35.00" energy="10.00" color="255 207 187">
+  </light>
+  <light xyz="19.72 -8.61 44.05" id="Point.003" distance="35.00" energy="10.00" color="255 207 187">
+  </light>
+  <light xyz="-54.01 -8.61 0.49" id="Point.004" distance="35.00" energy="10.00" color="255 207 187">
+  </light>
+  <light xyz="14.99 -7.14 -47.79" id="Point.005" distance="35.00" energy="10.00" color="255 207 187">
+  </light>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+  <start x="-12.77" y="-16.71" z="-29.90" h="-0.00"/>
+  <start x="-8.56" y="-15.46" z="19.74" h="-0.00"/>
+  <start x="-24.26" y="-16.71" z="12.01" h="-0.00"/>
+  <start x="22.00" y="-15.46" z="-11.76" h="-180.00"/>
+</scene>

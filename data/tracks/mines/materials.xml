@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="cavrern-rock.png" high-adhesion="Y"/>
+  <material name="chrome.png" shader="spheremap"/>
+  <material name="crystal_halo.png" disable-z-write="Y" shader="additive"/>
+  <material name="distord.png" fog="N" backface-culling="N" disable-z-write="Y" shader="additive"/>
+  <material name="emerald.png" fog="N" shader="alphablend"/>
+  <material name="fence_chain.png" shader="alphatest"/>
+  <material name="GrassTall.png" shader="alphatest"/>
+  <material name="halo_lamp.png" disable-z-write="Y" shader="additive"/>
+  <material name="lantern_glow.png" fog="N" disable-z-write="Y" shader="additive"/>
+  <material name="lightHaloG.png" fog="N" backface-culling="N" shader="additive"/>
+  <material name="lightHaloR.png" fog="N" disable-z-write="Y" shader="additive"/>
+  <material name="lightHaloY.png" disable-z-write="Y" fog="N" shader="additive"/>
+  <material name="lightLenFlareY.png" disable-z-write="Y" shader="additive"/>
+  <material name="metal_rusted_lamp.jpg" fog="N" shader="unlit"/>
+  <material name="mine_road.png">
+    <particles base="smoke.xml" condition="skid"/>
+  </material>
+  <material name="mine_water_reset.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="plants.png" grass-speed="1.50" shader="grass"/>
+  <material name="transparence.png" falling-effect="Y" reset="Y" shader="alphatest"/>
+  <material name="wood_beam.png">
+    <sfx filename="wooden_bridge.ogg" rolloff="0.60" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" positional="yes" volume="1.00"/>
+  </material>
+</materials>

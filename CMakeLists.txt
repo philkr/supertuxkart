@@ -338,8 +338,6 @@ endif()
 if(CHECK_ASSETS)
   if((IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/karts) AND
        (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/library) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/music) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/sfx) AND
        (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/textures) AND
        (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/tracks))
     message(STATUS "Assets found in data directory")

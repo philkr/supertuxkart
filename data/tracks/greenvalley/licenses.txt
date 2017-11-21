@@ -1,0 +1,158 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Green Valley for SuperTuxKart
+Upstream-Contact: Wolfs
+Source: https://supertuxkart.net
+License: CC BY-SA 3.0
+
+Files:
+ RudbeckiaHirta.spm
+ BlackEyedSusan.png
+Copyright: Copyright 2012 Dim
+License: CC-BY-SA 3.0
+
+Files:
+ ArctinumMinus.spm
+ StreamPlant.png
+ BurdockLeaf.png
+ Bush.png
+ BushFlower.png
+ ClethraAlnifolia.spm
+ Catail.png
+ TyphaLatifolia.spm
+ Fern-6.png
+ OsmundaCinnamoneaS.005.spm
+ Flower3F.png
+ Flower3.png
+ Flower5F.png
+ Flower5.png
+ MyasotisScorpioides.spm
+ Eupatorium.spm
+ GrassTall.png
+ grass_tall.spm
+ Woodpile.png
+Copyright: Copyright 2012 Dim
+License: CC-BY-SA 3.0
+Comment:
+ From dims_arboretum (http://opengameart.org/content/dims-arboretum)
+
+Files:
+ grass-border.png
+Copyright:
+ Copyright 2012 Christoph Egger
+ Copyright 2012 Marianne Gagnon (Auria)
+ Copyright 2012 MiniBjorn
+License: CC-BY-SA 3.0
+Comment:
+ Modification of grass2.jpg, which was
+ created by Christoph Egger, Marianne Gagnon (Auria) and MiniBjorn
+
+Files:
+ invisible.png
+ waterfall_particle.png
+Copyright: Copyright 2012 Wolfs
+License: CC0 1.0
+
+Files:
+ w_sky_1.jpg
+ w_sky_2.jpg
+ w_sky_3.jpg
+ w_sky_4.jpg
+ w_sky_6.jpg
+Copyright: Copyright 2012 Wolfs
+License: CC-BY-SA 3.0
+Comment:
+ Created by Wolfs, based on a picture
+ from http://commons.wikimedia.org/wiki/File:360%C2%B0_Schadonapa%C3%9F.jpg
+ which has been created by böhringer friedrich
+ and which is licensed under Creative Commons Attribution-Share Alike 2.5.
+
+Files:
+ stk_road_dirt.jpg
+Copyright: Copyright 2012 C.Stone (Binky)
+License: CC-BY-SA 3.0
+Comment:
+ Created by C.Stone (Binky), based on the images road_dirt.jpg
+ from SuperTuxKart's texture-directory
+ which has been created by Marianne Gagnon (Auria) and MiniBjorn
+ and which is licensed under Creative Commons Attribution Share-Alike (CC-BY-SA) 3.0
+ and grass2.jpg from SuperTuxKart's texture-directory
+ which has been created by Christoph Egger, Marianne Gagnon (Auria) and MiniBjorn
+ and which is licensed under Creative Commons Attribution Share-Alike (CC-BY-SA) 3.0.
+
+Files:
+ rock_gray.jpg
+Copyright: Copyright 2012 Wolfs
+License: CC0 1.0
+Comment:
+ Modification by Wolfs of a picture by jean-manuel clemençon (SamUncle)
+ which is based on an image from BurningWell and has been released to public domain
+
+Files:
+ roof.jpg
+Copyright: Copyright ????
+License: Public domain
+Comment:
+ From http://tellim.com/texture_cd/texture/building/roof/roof04.jpg
+
+Files:
+ animated_sheep.spm
+Copyright:
+ Copyright 2011 Canis Lupus
+ Copyright 2012 Kinsu
+License: CC-BY-SA 3.0
+Comment:
+ From Scotland track, created by Canis Lupus; animated and improved by Kinsu
+
+Files:
+ sheep.ogg
+Copyright:
+ Copyright ???? earthcalling
+License: Public domain
+Comment:
+ From pdsounds.org
+
+Files:
+ tree.jpg
+Copyright:
+ Copyright ???? Titus tscharntke
+License: Public domain
+Comment:
+ From http://www.burningwell.org/gallery2/v/textures/plants/treesWood/CEP00058.jpg.html
+
+Files:
+ waterfall.png
+Copyright:
+ Copyright 2012 Marianne Gagnon
+License: CC-BY-SA 3.0
+
+Files:
+ water_light2.png
+ water_light3.png
+Copyright:
+ Copyright 2012 Marianne Gagnon
+ Copyright 2012 Samuncle
+License: CC-BY-SA 3.0
+Comment:
+ Based on public images from Bruningwell, water_light2.png is a modification of water_light3.png
+
+Files:
+ waterfall3.ogg
+Copyright:
+ Copyright 2012 Kurt
+License: CC-BY-SA 3.0
+Comment:
+ From http://opengameart.org/content/stream-sounds
+
+Files:
+ *.xml
+ sshot.jpg
+ greenvalley_track.spm
+ InvisibleWall.spm
+ rescue_plane.spm
+ tree_model_4_faces.spm
+ trees_far.spm
+ WaterPlant1.lod.low.spm
+ water_road_splash_layer.spm
+ water_surface.spm
+Copyright: Copyright 2012 Wolfs
+License: CC-BY-SA 3.0

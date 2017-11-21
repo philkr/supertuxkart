@@ -1,0 +1,30 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Gnu Kart for SuperTuxKart
+Upstream-Contact: Marianne Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: GPL ???
+
+Files:
+ Carpet.spm
+ gnu.spm
+ *.xml
+Copyright:
+ Copyright 2009 Benjamin Arnaudet (Benjarsvn)
+ Copyright 2010 STKRudy85
+ Copyright 2013 Lionel "Funto" Fuentes <funto66@users.sf.net>
+License: GPL ???
+Comment: Animation of character by STKRudy85; animation of carpet by Lionel Fuentes
+
+Files:
+ arabic_lantern.spm
+ gnu_mask.png
+Copyright: Copyright 2016-2017 Benau <benaustk@users.sf.net>
+License: public-domain
+
+Files: gnu.png gnushadow.png
+Copyright: Copyright 2009 Benjamin Arnaudet (Benjarsvn)
+License: GPL ???
+
+Files: gnuicon.png
+Copyright: Copyright 2010 Anthony "yeKcim" Carré <yeknan.free.fr>
+License: GPL 2.0

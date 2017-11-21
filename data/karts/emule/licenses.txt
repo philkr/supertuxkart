@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: eMule Kart for SuperTuxKart
+Upstream-Contact: Kinsu <kinsumail@gmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: *
+Copyright: Copyright 2011 Kinsu <kinsumail@gmail.com>
+License: CC-BY-SA 3.0
+Comment: (From author) "Please contact me for any use which is not allowed by this license."

@@ -1,0 +1,45 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Xue Kart for SuperTuxKart
+Upstream-Contact: Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files:
+ *.xml
+ hc_body_gloss.png
+ hc_body.png
+ mouse_texture.png
+ shadow.png
+ skirt_gloss.png
+ skirt.png
+Copyright: Copyright 2014 "JunglePenguin" <js@junglepenguin.nl>
+License: CC-BY-SA 3.0
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4753
+
+Files:
+ xfce_icon64.png
+ xfce_icon32.png
+Copyright: Copyright 2013 Totoplus62
+License: ????
+Comment: From https://forum.freegamedev.net/viewtopic.php?f=18&t=4923, based on work by Ludsky.
+
+Files: headlight.spm
+Copyright:
+ Copyright 2017 Néd J. "jymis" Édoire <nwad@crypticgate.net>
+ Copyright 2017 Jean-Manual Clémençon <sam.un@protonmail.com>
+License: CC-BY-SA 3.0
+Comment: I think jymis is the original creator of the headlights model, but samuncle added them for this kart.
+
+Files: hc.propeller.spm
+Copyright: Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+License: ????
+Comment:
+ Kinda hard to tell the exact copyright year. The repository was also corrupted around this time too. :(
+
+Files: xue.spm
+Copyright: 
+ Copyright 2013 JunglePenguin <js@junglepenguin.nl>
+ Copyright 2014 Jean-Manuel "samuncle" Clémençon <sam.un@protonmail.com>
+ Copyright 2015 Vincent "vlj" Lejeune
+License: CC-BY-SA 3.0
+Comment: Animations (improved) by samuncle and vlj.

@@ -1,0 +1,42 @@
+Format: https://debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Nolok Kart for SuperTuxKart
+Upstream-Contact: Marianne "Auria" Gagnon <auria.mg@gmail.com>
+Source: https://supertuxkart.net
+License: CC-BY-SA 3.0
+
+Files: nolokicon.png
+Copyright: Copyright 2010 Anthony "yeKcim" Carré <yeknan.free.fr>
+License: GPL 2.0
+
+Files:
+ AAARH.png
+ nolok_kart.png
+ nolok_window.png
+ nolokshadow.png
+ nolokwheel.png
+ Private-sphere.png
+ *.xml
+Copyright:
+ Copyright 2009 Tobias "Tob" "cheleb" Beyrer
+ Copyright 2011 Marianne Gagnon
+License: CC-BY-SA 3.0
+Comment: Marianne Gagnon modified the window texture to make it transparent.
+
+Files: wheel*.spm
+Copyright:
+ Copyright 2009 Tobias "Tob" "cheleb" Beyrer
+ Copyright 2010 Marianne Gagnon
+License: CC-BY-SA 3.0
+Comment: Wheels modified by Marianne Gagnon to make them smoother.
+
+Files: nolok.spm
+Copyright:
+ Copyright 2009 Tobias "Tob" "cheleb" Beyrer
+ Copyright 2010 STKRudy85
+License: CC-BY-SA 3.0
+Comment: Model by cheleb, animation by STKRudy85.
+
+Files: headlight.spm 
+Copyright:
+ Copyright 2017 Benau
+License: CC-BY-SA 3.0

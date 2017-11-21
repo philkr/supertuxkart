@@ -269,14 +269,6 @@ void STKConfig::getAllData(const XMLNode * root)
         camera->get("cutscene-fov", &m_cutscene_fov);
     }
 
-    if (const XMLNode *music_node = root->getNode("music"))
-    {
-        std::string title_music;
-        music_node->get("title", &title_music);
-        assert(title_music.size() > 0);
-        title_music = file_manager->getAsset(FileManager::MUSIC, title_music);
-    }
-
     if(const XMLNode *skidmarks_node = root->getNode("skid-marks"))
     {
         skidmarks_node->get("max-number",   &m_max_skidmarks    );

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Emule"
+      version           = "3"
+      model-file        = "emule.spm"
+      icon-file         = "emule_icon128.png"
+      minimap-icon-file = "emule_icon32.png"
+      shadow-file       = "emule_shadow.png"
+      type              = "medium"
+      center-shift      = "0.00"
+      groups            = "standard"
+      rgb               = "1.00 0.00 0.00" >
+  <sounds engine = "large"/>
+  <animations left = "9"
+              straight = "19"
+              right = "29"
+              start-winning = "49"
+              start-winning-loop = "184"
+              end-winning = "204"
+              start-losing = "249"
+              start-losing-loop = "439"
+              end-losing = "479"/>
+  <wheels>
+    <front-left position = "-0.313568 0.146248 0.522587"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.313654 0.146248 0.522587"
+                 model    = "wheel-front-right.spm"       />
+    <rear-left position = "-0.328000 0.146322 -0.375000"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.333219 0.146248 -0.374675"
+                 model    = "wheel-rear-right.spm"       />
+  </wheels>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.255852 0.362264 -0.586941" />
+    <nitro-emitter-b position = "-0.250476 0.362264 -0.586941" />
+  </nitro-emitter>
+  <headlights>
+    <object position="0.180361 0.317161 0.469602"
+            rotation="0.442480 0.430089 0.436769"
+            scale="1.000000 1.000000 1.000000"
+            bone="Car"
+            model="headlight_1.spm"/>
+    <object position="-0.171724 0.310097 0.472176"
+            rotation="0.442480 0.430089 0.436769"
+            scale="1.000000 1.000000 1.000000"
+            bone="Car"
+            model="headlight_2.spm"/>
+  </headlights>
+  <hat position="0.002814 0.709484 -0.017320"
+       rotation="8.117022 -0.621197 0.808938"
+       scale="1.000000 1.000000 1.000000"
+       bone="Head"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>

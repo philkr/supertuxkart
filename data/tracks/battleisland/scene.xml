@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<scene>
+  <track model="battleisland_track.spm" x="0" y="0" z="0">
+    <static-object  model="Water.spm" xyz="-3.16 -5.15 0.52" hpr="0.0 -0.0 0.0" scale="1.76 1.77 1.75">
+    <animated-texture name="seagloss.png" dx="0.020"  dy="0.0400" />
+    </static-object>
+  </track>
+  <sun  xyz="73.90 124.29 46.17" sun-specular="255 255 255" sun-diffuse="255 255 255" ambient="95 95 95"/>
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
+  <camera far="1000.0"/>
+  <item id="Nitro Big.000" x="-3.26" y="-1.50" z="-41.53" h="-43.79" />
+  <big-nitro id="Nitro Big.001" x="-3.16" y="-1.32" z="0.19" />
+  <big-nitro id="Nitro Big.002" x="-3.16" y="2.17" z="0.19" />
+  <item id="Nitro Big.003" x="38.74" y="-1.34" z="-0.39" h="-43.79" />
+  <item id="Nitro Big.004" x="-4.12" y="-1.18" z="40.25" h="-43.79" />
+  <item id="Nitro Big.005" x="-32.42" y="-0.58" z="-29.07" />
+  <item id="Nitro Big.006" x="-33.91" y="-1.35" z="27.15" />
+  <item id="Nitro Big.007" x="26.10" y="-1.39" z="27.82" />
+  <item id="Nitro Big.008" x="24.47" y="-1.28" z="-29.07" />
+  <item id="Nitro Big.009" x="-44.07" y="-1.15" z="-1.49" h="-43.79" />
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+  <start x="59.26" y="-2.68" z="0.19" h="-90.00"/>
+  <start x="-65.58" y="-2.77" z="0.19" h="90.00"/>
+  <start x="-3.16" y="-2.77" z="62.61" h="-180.00"/>
+  <start x="-3.16" y="-2.75" z="-62.23" h="-0.00"/>
+  <start x="-3.32" y="-0.62" z="22.94" h="0.00"/>
+  <start x="-3.43" y="-0.09" z="-22.00" h="180.00"/>
+</scene>

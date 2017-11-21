@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="aoMapGoatv3.jpg" backface-culling="N"/>
+  <material name="bubble.png" fog="N" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="bubble_solid_texture.png" collision-detect="Y" collision-reaction="push" collision-particles="sparks.xml" shader="alphatest"/>
+  <material name="BurdockLeaf.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="city_tree_leaves.jpg" ignore="Y" backface-culling="N" disable-z-write="Y" mask="city_tree_leaves_alpha.jpg" shader="alphatest"/>
+  <material name="column_diffuse.jpg" normal-map="column_normal_map.png"/>
+  <material name="CornusAmericana.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="crystal_ball_halo.png" fog="N" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="envmap.png" fog="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="envmap2.png" fog="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="envmap3.png" fog="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="envmap4.png" fog="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="FieldPlant2.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="grass.jpg" slowdown-time="0.80" max-speed="0.50"/>
+  <material name="grass2.jpg" fog="N"/>
+  <material name="GrassTall.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="GroundCover.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Jackinthepulpit.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="light.png" ignore="Y" clampu="Y" disable-z-write="Y" backface-culling="N" fog="N" shader="alphablend"/>
+  <material name="marble_column.jpg" normal-map="column_normal_map.png"/>
+  <material name="Metal-plate.png" backface-culling="N"/>
+  <material name="Mint.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="Mushroom 2 side.png" backface-culling="N" ignore="Y" shader="unlit"/>
+  <material name="Mushroom 2.png" backface-culling="N" ignore="Y" shader="unlit"/>
+  <material name="Mushroom 3 side.png" backface-culling="N" ignore="Y" shader="unlit"/>
+  <material name="Mushroom 3.png" backface-culling="N" ignore="Y" shader="unlit"/>
+  <material name="Mushroom 7 side.png" backface-culling="N" ignore="Y" shader="unlit"/>
+  <material name="Mushroom 7.png" backface-culling="N" ignore="Y" shader="unlit"/>
+  <material name="palm_b.png" backface-culling="N" shader="alphatest"/>
+  <material name="palm_tree_leaf.png" shader="alphatest"/>
+  <material name="city_grass.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="rock_brown.jpg" fog="N"/>
+  <material name="hut_roof.jpg" backface-culling="N"/>
+  <material name="sand2.jpg" fog="N"/>
+  <material name="sea.jpg" reset="Y"/>
+  <material name="splat.png" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="rock_brown.jpg" splatting-texture-4="sand2.jpg" shader="splatting"/>
+  <material name="splat2.png" splatting-texture-1="dirt.jpg" splatting-texture-2="grass2.jpg" splatting-texture-3="snow.png" splatting-texture-4="rock_grey.jpg" shader="splatting"/>
+  <material name="track_screenshot_dummy.png" fog="N" shader="alphablend"/>
+  <material name="StreamPlant.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="transparence2.png" shader="alphatest"/>
+  <material name="tree_1.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="tree_1Low.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="ufo_window.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="vegetation_1.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="wall.png" backface-culling="N"/>
+  <material name="wall_wood1.jpg">
+    <particles condition="skid" base="smoke.xml"/>
+  </material>
+  <material name="WhiteFlowerLeaves.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="WhiteFlowerSkin.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="wooden2.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+</materials>

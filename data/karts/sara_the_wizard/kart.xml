@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Sara the Wizard"
+      version           = "3"
+      model-file        = "sara the wizard.spm"
+      icon-file         = "icon-sara.png"
+      minimap-icon-file = "icon-sara.png"
+      shadow-file       = "sara-shadow.png"
+      type              = "medium"
+      groups            = "standard"
+      rgb               = "1.00 1.00 1.00" >
+  <sounds engine = "large"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-jump = "41"
+              end-jump = "71"
+              start-winning = "72"
+              end-winning = "188"
+              start-losing = "189"
+              start-losing-loop = "195"
+              end-losing = "220"/>
+  <wheels>
+    <rear-right position = "0.062147 0.069841 -0.593046"
+                 model    = "wheel-rear-right.spm"       />
+    <rear-left position = "-0.062147 0.069841 -0.593046"
+                 model    = "wheel-rear-left.spm"       />
+    <front-left position = "-0.193361 0.135471 0.448042"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.192284 0.135471 0.448042"
+                 model    = "wheel-front-right.spm"       />
+  </wheels>
+  <speed-weighted-objects>
+    <object position="0.000000 0.000000 0.000000"
+            rotation="-90.000003 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            texture-speed-x="0.000000" texture-speed-y="1.500000"
+            model="speed_weight_object.spm"/>
+  </speed-weighted-objects>
+  <nitro-emitter>
+    <nitro-emitter-a position = "-0.178905 0.268604 -0.499154" />
+    <nitro-emitter-b position = "0.171986 0.268604 -0.499154" />
+  </nitro-emitter>
+  <headlights>
+    <object position="-0.000855 0.367100 0.495513"
+            rotation="-90.000003 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight.spm"/>
+  </headlights>
+  <hat position="0.003968 0.900360 0.111485"
+       rotation="11.446087 -0.000004 -0.000000"
+       scale="1.000000 1.000000 1.000000"
+       bone="head"/>
+  <lean max="*0-10"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>

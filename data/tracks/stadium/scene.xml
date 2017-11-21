@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<scene>
+  <track model="stadium_track.spm" x="0" y="0" z="0"/>
+  <sun  xyz="-40.13 115.85 -44.63" ambient="79 75 70"/>
+
+  <sky-dome texture="racetrack_sky.jpg" 
+            horizontal="16" vertical="16" 
+            texture-percent="0.5" sphere-percent="1.3"
+            speed-x="0" speed-y="0" />
+  <camera far="1000.0"/>
+  <item id="Empty" x="-22.45" y="-61.13" z="48.62" h="150.00" />
+  <item id="Empty.001" x="-51.29" y="-61.13" z="48.62" h="210.00" />
+  <item id="Empty.004" x="-84.64" y="-61.13" z="106.38" h="210.00" />
+  <item id="Empty.005" x="10.90" y="-61.35" z="106.38" h="150.00" />
+  <item id="start_p1.001" x="-51.29" y="-61.13" z="-1.35" h="-30.00" />
+  <item id="start_p1.002" x="-22.45" y="-61.13" z="-1.35" h="30.00" />
+  <item id="start_p1.003" x="10.90" y="-61.13" z="-59.11" h="30.00" />
+  <item id="start_p1.004" x="-84.64" y="-61.13" z="-59.11" h="-30.00" />
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.50"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="0.10"/>
+  <start x="-76.64" y="-61.20" z="23.63" h="90.00"/>
+  <start x="2.90" y="-61.20" z="23.63" h="-90.00"/>
+  <start x="-36.87" y="-61.20" z="97.05" h="180.00"/>
+  <start x="-36.87" y="-61.20" z="-49.79" h="-0.00"/>
+  <start x="-79.96" y="-61.20" z="79.95" h="144.24"/>
+  <start x="6.12" y="-61.20" z="-40.04" h="314.86"/>
+  <start x="6.00" y="-61.20" z="80.05" h="228.22"/>
+  <start x="-69.98" y="-61.20" z="-39.98" h="42.33"/>
+</scene>

@@ -1,0 +1,13 @@
+Textures and models by Jean-Manuel Clémoeçon
+    based on http://www.publicdomainpictures.net/ and http://www.burningwell.org/
+    public domain images
+    Released under CC-BY-SA 3.0
+
+Except
+    mansion_curtains
+        based on image by 'Nieuw' http://en.m.wikipedia.org/wiki/File:Gordijnen_aan_venster.JPG
+        with modifications by Jean-Manuel Clémoeçon
+        released under CC-BY-SA 3.0
+
+    mushroom models
+        by pfunked released under CC-BY-SA 3.0

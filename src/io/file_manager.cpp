@@ -126,10 +126,8 @@ FileManager::FileManager()
     m_subdir_name[GUI        ] = "gui";
     m_subdir_name[LIBRARY    ] = "library";
     m_subdir_name[MODEL      ] = "models";
-    m_subdir_name[MUSIC      ] = "music";
     m_subdir_name[REPLAY     ] = "replay";
     m_subdir_name[SCRIPT     ] = "tracks";
-    m_subdir_name[SFX        ] = "sfx";
     m_subdir_name[SKIN       ] = "skins";
     m_subdir_name[SHADER     ] = "shaders";
     m_subdir_name[TEXTURE    ] = "textures";
@@ -335,7 +333,6 @@ void FileManager::init()
     pushTextureSearchPath(m_subdir_name[GUI], "gui");
 
     pushModelSearchPath  (m_subdir_name[MODEL]);
-    pushMusicSearchPath  (m_subdir_name[MUSIC]);
 
     // Add more paths from the STK_MUSIC_PATH environment variable
     if(getenv("SUPERTUXKART_MUSIC_PATH")!=NULL)
@@ -1234,20 +1231,6 @@ std::string FileManager::searchMusic(const std::string& file_name) const
 {
     std::string path;
     bool success = findFile(path, file_name, m_music_search_path);
-    if(!success)
-    {
-        // If a music file is not found in any of the music search paths
-        // check all root dirs. This is used by stk_config to load the
-        // title music before any music search path is defined)
-        path = getAsset(MUSIC, file_name);
-        success = fileExists(path);
-    }
-    if (!success)
-    {
-        throw std::runtime_error(
-            "[FileManager::getMusicFile] Cannot find music file '"
-            +file_name+"'.");
-    }
     return path;
 }   // searchMusic
 

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="konqi.jpg" colorizable="Y" colorization-factor="0.00" colorization-mask="konqi_colorization_mask.png"/>
+  <material name="konqi_kart.jpg" colorizable="Y" colorization-factor="0.00"/>
+</materials>

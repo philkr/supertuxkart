@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<track  name           = "Volcan Island"
+        version        = "7"
+        groups         = "standard"
+        designer       = "Fabio Ponzi"
+        music          = "after_the_flames.music"
+        screenshot     = "screenshot.png"
+        smooth-normals = "true"
+        default-number-of-laps = "2"
+        reverse        = "Y"
+        clouds         = "N"
+        is-during-day  = "Y"
+        shadows        = "Y"
+>
+</track>

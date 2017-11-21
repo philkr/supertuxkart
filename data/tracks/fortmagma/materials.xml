@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="backeffect.jpg" backface-culling="N" ignore="Y" shader="spheremap"/>
+  <material name="Battle_for_Wesnoth.png" shader="alphatest"/>
+  <material name="cannonBall.jpg">
+    <sfx filename="WilhelmScream.ogg" min_speed="5.00" max_speed="15.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
+  </material>
+  <material name="carpet.png" ignore="Y" shader="alphatest"/>
+  <material name="castelwall.jpg" backface-culling="Y"/>
+  <material name="chain.png" backface-culling="N" shader="alphatest"/>
+  <material name="dynamiclight.png" ignore="Y" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="iron-fence.png" backface-culling="N" shader="alphatest"/>
+  <material name="lightHaloY.png" ignore="Y" disable-z-write="Y" shader="alphablend"/>
+  <material name="mansion_windows.png" backface-culling="N" disable-z-write="Y" shader="alphablend"/>
+  <material name="pix.png" reset="Y" shader="alphatest"/>
+  <material name="Rubis-subsea.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="torch.png" disable-z-write="Y" backface-culling="N" shader="alphatest"/>
+  <material name="track_01.jpg" backface-culling="N"/>
+  <material name="wood_planks1.jpg" high-adhesion="Y" has-gravity="Y"/>
+  <material name="woodBridge-subsea.jpg" high-adhesion="Y" has-gravity="Y"/>
+  <material name="zipper.png" shader="alphablend" mirror-axis="V"/>
+  <material name="zipper_effect.png" shader="alphablend"/>
+</materials>

@@ -95,11 +95,6 @@ void RaceResultGUI::init()
             human_win = human_win && kart->getRaceResult();
     }
 
-    //std::string path = (human_win ? Different result music too later
-    //    file_manager->getAsset(FileManager::MUSIC, "race_summary.music") :
-    //    file_manager->getAsset(FileManager::MUSIC, "race_summary.music"));
-    std::string path = file_manager->getAsset(FileManager::MUSIC, "race_summary.music");
-
     // Calculate how many track screenshots can fit into the "result-table" widget
     GUIEngine::Widget* result_table = getWidget("result-table");
     assert(result_table != NULL);

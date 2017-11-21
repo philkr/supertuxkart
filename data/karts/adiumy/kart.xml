@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Adiumy"
+      version           = "3"
+      model-file        = "adiumy.spm"
+      icon-file         = "adiumyicon.png"
+      minimap-icon-file = "adiumyicon.png"
+      shadow-file       = "adiumyshadow.png"
+      type              = "medium"
+      groups            = "standard"
+      rgb               = "0.00 0.70 0.00" >
+  <sounds engine = "small"/>
+  <animations left = "9"
+              straight = "19"
+              right = "29"
+              start-winning = "59"
+              start-winning-loop = "119"
+              end-winning = "159"
+              start-losing = "169"
+              start-losing-loop = "199"
+              end-losing = "209"/>
+  <wheels>
+    <front-left position = "-0.397559 0.161885 0.255742"
+                 model    = "wheel-front-left.spm"       />
+    <front-right position = "0.402441 0.161885 0.255742"
+                 model    = "wheel-front-right.spm"       />
+    <rear-left position = "-0.029767 0.076657 -0.284847"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.031076 0.076657 -0.284847"
+                 model    = "wheel-rear-right.spm"       />
+  </wheels>
+  <speed-weighted-objects>
+    <object position="0.180017 0.366649 -0.038550"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            speed-factor="1.000000"
+            model="hc.propeller.spm"/>
+  </speed-weighted-objects>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.203126 0.391161 -0.397603" />
+    <nitro-emitter-b position = "-0.226106 0.391161 -0.397603" />
+  </nitro-emitter>
+  <headlights>
+    <object position="0.002742 0.264130 0.518701"
+            rotation="0.000001 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            model="headlight.spm"/>
+  </headlights>
+  <hat position="-0.001053 0.766516 -0.093062"
+       rotation="-11.696624 8.292765 -1.922662"
+       scale="0.999998 0.998355 0.999937"
+       bone="Head"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>

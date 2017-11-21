@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Gnu"
+      version           = "3"
+      model-file        = "gnu.spm"
+      icon-file         = "gnuicon.png"
+      minimap-icon-file = "gnuicon.png"
+      shadow-file       = "gnushadow.png"
+      type              = "medium"
+      center-shift      = "0.70"
+      groups            = "standard"
+      rgb               = "1.00 0.70 0.00" >
+  <sounds engine = "large"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-winning = "79"
+              end-winning = "296"
+              start-losing = "335"
+              start-losing-loop = "473"
+              end-losing = "479"/>
+  <speed-weighted-objects>
+    <object position="0.000000 0.300000 0.000000"
+            rotation="0.000000 -0.000000 0.000000"
+            scale="1.000000 1.000000 1.000000"
+            speed-factor="1.000000"
+            model="Carpet.spm"/>
+  </speed-weighted-objects>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.323666 0.122335 -0.360474" />
+    <nitro-emitter-b position = "-0.308955 0.122335 -0.360474" />
+  </nitro-emitter>
+  <headlights>
+    <object position="-0.149599 0.560597 0.419003"
+            rotation="-1.036173 162.941416 -0.801166"
+            scale="1.000000 0.999457 0.999999"
+            bone="Bras-1-L"
+            color="193 255 24"
+            model="arabic_lantern.spm"/>
+    <object position="0.149986 0.560232 0.419844"
+            rotation="-0.532869 125.149925 -0.566508"
+            scale="0.999999 0.999456 1.000000"
+            bone="Bras-1-R"
+            color="193 255 24"
+            model="arabic_lantern.spm"/>
+  </headlights>
+  <hat position="0.003658 1.078315 0.033591"
+       rotation="22.314535 -0.004841 -0.356968"
+       scale="1.000000 0.999546 0.999909"
+       bone="Museau"/>
+</kart>

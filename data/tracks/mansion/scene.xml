@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<scene>
+  <lod>
+   <group name="dead_tree">
+    <static-object lod_distance="150" lod_group="dead_tree" model="Mesh.012.spm" xyz="73.39 1.70 43.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="175" lod_group="dead_tree" model="Mesh.015.spm" xyz="73.39 1.70 26.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="200" lod_group="dead_tree" model="Mesh.016.spm" xyz="73.39 1.70 35.07" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="tombStone">
+    <static-object lod_distance="70" lod_group="tombStone" model="BezierCurve.002.spm" xyz="43.50 -3.04 -2.68" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="jackOlantern">
+    <static-object lod_distance="200" lod_group="jackOlantern" model="Circle.026.spm" xyz="73.20 0.15 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="400" lod_group="jackOlantern" model="Circle.028.spm" xyz="73.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="500" lod_group="jackOlantern" model="Circle.027.spm" xyz="73.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="lantern">
+    <static-object lod_distance="20" lod_group="lantern" model="Mesh.002.spm" xyz="64.24 2.78 41.08" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="50" lod_group="lantern" model="Mesh.001.spm" xyz="64.24 2.78 37.09" hpr="-90.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="old_barrier">
+    <static-object lod_distance="60" lod_group="old_barrier" model="metal_barrier.spm" xyz="58.15 4.09 41.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="pumpkin">
+    <static-object lod_distance="20" lod_group="pumpkin" model="Circle.023.spm" xyz="68.27 0.08 11.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="40" lod_group="pumpkin" model="Circle.024.spm" xyz="68.27 0.08 14.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="80" lod_group="pumpkin" model="Circle.025.spm" xyz="68.27 0.08 17.93" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+  </lod>
+  <track model="mansion_track.spm" x="0" y="0" z="0">
+    <static-object  lod_instance="true" lod_group="tombStone" xyz="-91.29 -1.13 -84.42" hpr="0.0 -87.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="tombStone" xyz="-73.38 -0.41 -66.52" hpr="15.1 -29.9 -8.3" scale="0.84 0.84 0.84"/>
+    <static-object  model="tracks.spm" xyz="-77.55 0.78 -8.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="tombStone" xyz="-119.16 -0.99 -48.89" hpr="13.0 -26.8 -0.0" scale="1.35 1.35 1.35"/>
+    <static-object  lod_instance="true" lod_group="tombStone" xyz="-89.06 -2.79 -52.37" hpr="30.7 95.1 31.2" scale="1.35 1.35 1.35"/>
+    <static-object  lod_instance="true" lod_group="tombStone" xyz="-66.21 -4.32 -25.22" hpr="-74.5 106.6 -74.7" scale="1.35 1.35 1.35"/>
+    <static-object  lod_instance="true" lod_group="pumpkin" xyz="-92.70 -5.29 59.42" hpr="0.0 -16.2 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="jackOlantern" xyz="-93.79 -5.44 57.39" hpr="0.0 177.2 0.0" scale="1.62 1.62 1.62"/>
+    <static-object  model="Circle.009.spm" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object  model="Circle.010.spm" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object  model="Circle.011.spm" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object  model="Circle.012.spm" xyz="0.00 333.20 0.00" hpr="-0.0 135.0 -0.0" scale="1.20 1.20 1.20">
+    <animated-texture name="clouds.png" dx="0.050" />
+    </static-object>
+    <static-object  model="Circle.013.spm" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object  model="Circle.014.spm" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object  model="Circle.015.spm" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object  model="Circle.016.spm" xyz="0.00 277.41 0.00" hpr="0.0 -10.0 0.0" scale="1.11 1.11 1.11">
+    <animated-texture name="clouds.png" dx="0.040" />
+    </static-object>
+    <static-object  model="Circle.017.spm" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object  model="Circle.018.spm" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object  model="Circle.019.spm" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object  model="Circle.020.spm" xyz="0.00 98.47 0.00" hpr="0.0 -76.1 -0.0" scale="1.15 1.15 1.15">
+    <animated-texture name="clouds.png" dx="0.030" />
+    </static-object>
+    <static-object  lod_instance="true" lod_group="pumpkin" xyz="4.35 0.16 5.65" hpr="-0.0 -134.5 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="jackOlantern" xyz="4.60 0.17 7.03" hpr="0.0 -29.9 0.0" scale="0.77 0.77 0.77"/>
+    <static-object  lod_instance="true" lod_group="jackOlantern" xyz="-111.74 -3.52 -67.92" hpr="-0.0 80.1 -0.0" scale="1.62 1.62 1.62"/>
+    <static-object  lod_instance="true" lod_group="jackOlantern" xyz="-111.74 -3.52 -64.66" hpr="-0.0 112.2 -0.0" scale="0.92 0.92 0.92"/>
+    <static-object  lod_instance="true" lod_group="pumpkin" xyz="6.26 0.24 5.37" hpr="0.0 -80.9 0.0" scale="1.09 1.09 1.09"/>
+    <static-object  lod_instance="true" lod_group="pumpkin" xyz="7.72 0.28 6.60" hpr="0.0 -80.9 0.0" scale="0.69 0.69 0.69"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="18.48 -2.51 24.86" hpr="92.4 -5.5 153.3" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-15.50 -3.34 9.73" hpr="-48.7 -130.4 -44.6" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="23.13 -2.45 46.15" hpr="-83.9 -167.5 -1.3" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-21.62 -1.64 8.61" hpr="-84.9 -29.1 1.5" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="19.97 -1.08 9.85" hpr="-82.7 48.3 2.0" scale="2.23 2.23 2.23"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-12.15 -1.99 1.49" hpr="-85.1 23.4 13.1" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="15.16 -0.50 7.51" hpr="-84.7 155.8 -1.4" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="14.54 -3.34 65.80" hpr="-79.2 75.2 5.1" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="31.94 -0.62 9.04" hpr="-85.9 127.1 -2.2" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="4.45 -3.93 90.58" hpr="-85.3 138.4 -1.7" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-45.73 -4.27 87.81" hpr="-82.7 48.3 2.0" scale="0.88 0.88 0.88"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-80.55 -8.05 -4.51" hpr="-82.7 48.3 2.0" scale="1.46 1.46 1.46"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-55.32 -0.98 -67.66" hpr="-85.4 137.6 -1.8" scale="1.46 1.46 1.46"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="10.71 -1.87 43.07" hpr="-83.9 -167.5 -1.3" scale="1.00 1.00 1.00"/>
+    <static-object  model="bugsSwamp.spm" xyz="-78.88 -2.44 75.08" hpr="-90.0 -111.2 -0.0" scale="1.00 1.00 1.00">
+    <animated-texture name="bugslight.png" dy="1.0000" />
+    </static-object>
+    <static-object  model="bugsSwamp.spm" xyz="-74.69 -0.90 46.35" hpr="-90.0 -47.7 0.0" scale="1.47 1.47 1.47">
+    <animated-texture name="bugslight.png" dy="1.0000" />
+    </static-object>
+    <static-object  model="bugsSwamp.spm" xyz="-50.23 -0.90 99.13" hpr="-90.0 -0.0 0.0" scale="1.47 1.47 1.47">
+    <animated-texture name="bugslight.png" dy="1.0000" />
+    </static-object>
+    <static-object  model="bugsSwamp.spm" xyz="-81.80 -0.90 99.13" hpr="-90.0 -15.9 -0.0" scale="1.47 1.47 1.47">
+    <animated-texture name="bugslight.png" dy="1.0000" />
+    </static-object>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="38.91 -1.20 11.09" hpr="-82.7 48.3 2.0" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="31.67 -3.92 67.27" hpr="-84.2 176.8 -1.3" scale="1.91 1.91 1.91"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-20.42 -4.78 43.77" hpr="-84.2 8.9 25.1" scale="2.09 2.09 2.09"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-19.72 -1.87 25.48" hpr="-84.1 2.8 1.3" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-10.72 -1.95 -6.29" hpr="-85.1 23.4 13.1" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-25.29 -1.04 -6.40" hpr="-84.9 -29.1 1.5" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-40.77 -2.79 -14.72" hpr="-82.6 -26.4 10.2" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-26.27 -1.21 -15.33" hpr="-82.3 25.6 24.0" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="61.59 0.34 -36.94" hpr="-82.7 48.3 2.0" scale="2.23 2.23 2.23"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="55.23 -4.22 -58.35" hpr="-74.3 43.9 -6.7" scale="4.70 4.70 4.70"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="70.55 -10.09 -12.06" hpr="-61.5 38.6 -2.0" scale="4.70 4.70 4.70"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-118.77 -8.13 -20.91" hpr="-64.6 31.0 12.3" scale="4.70 4.70 4.70"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-68.93 -7.26 -53.30" hpr="-67.2 31.2 14.1" scale="4.70 4.70 4.70"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-90.23 -11.16 95.22" hpr="-64.6 31.0 12.3" scale="4.70 4.70 4.70"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-36.34 -11.16 123.33" hpr="-64.6 31.0 12.3" scale="4.70 4.70 4.70"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="19.11 -3.92 110.29" hpr="-84.2 176.8 -1.3" scale="1.91 1.91 1.91"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="11.78 -1.95 -1.89" hpr="88.7 4.3 168.0" scale="1.28 1.28 1.28"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="25.35 -1.08 2.14" hpr="-86.6 118.5 -2.7" scale="2.23 2.23 2.23"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="15.76 -1.08 15.08" hpr="-82.4 -126.0 -2.2" scale="2.23 2.23 2.23"/>
+    <static-object  lod_instance="true" lod_group="dead_tree" xyz="-16.51 -2.49 18.13" hpr="-84.2 -0.4 1.3" scale="2.23 2.23 2.23"/>
+    <static-object  model="waterPond.spm" xyz="-75.02 -12.93 26.30" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+    <animated-texture name="water_light2.png" dx="0.100" />
+    </static-object>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-9.48 4.09 4.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="15.33 4.09 4.20" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_tree_low.spm" xyz="-115.36 2.47 -92.47" hpr="-0.0 37.3 -0.0" scale="0.70 0.70 0.70"/>
+    <static-object  model="dead_tree_low.spm" xyz="-134.07 1.07 -56.13" hpr="-0.0 90.0 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_tree_low.spm" xyz="-113.69 -7.44 3.28" hpr="-0.0 90.0 -0.0" scale="1.22 1.22 1.22"/>
+    <static-object  model="basicfence.spm" xyz="-9.85 1.46 5.00" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-14.57 3.78 4.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-25.60 -0.09 5.39" hpr="-44.3 175.6 7.6" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_tree_low.spm" xyz="-113.69 -4.83 77.89" hpr="-0.0 90.0 -0.0" scale="1.22 1.22 1.22"/>
+    <static-object  model="dead_tree_low.spm" xyz="-55.14 -4.83 118.48" hpr="0.0 178.8 0.0" scale="0.99 0.99 0.99"/>
+    <static-object  model="dead_tree_low.spm" xyz="-22.29 -4.83 118.48" hpr="0.0 178.8 0.0" scale="0.68 0.68 0.68"/>
+    <static-object  model="dead_tree_low.spm" xyz="-30.51 -4.48 68.44" hpr="-0.0 90.0 -0.0" scale="0.98 0.98 0.98"/>
+    <static-object  model="dead_tree_low.spm" xyz="-30.51 -4.48 42.48" hpr="0.0 143.8 0.0" scale="0.77 0.77 0.77"/>
+    <static-object  model="dead_tree_low.spm" xyz="-51.45 -4.48 49.98" hpr="0.0 143.8 0.0" scale="0.77 0.77 0.77"/>
+    <static-object  model="dead_tree_low.spm" xyz="36.86 -2.22 49.98" hpr="0.0 143.8 0.0" scale="0.97 0.97 0.97"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-24.32 -0.09 4.10" hpr="-4.0 4.2 -6.3" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-80.91 -3.47 43.17" hpr="-17.8 177.2 2.8" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-91.66 -3.47 37.74" hpr="-17.5 -24.4 -0.7" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_tree_low.spm" xyz="36.86 -3.53 109.96" hpr="0.0 143.8 0.0" scale="0.73 0.73 0.73"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="13.98 3.23 5.66" hpr="-44.3 175.6 -0.7" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="18.81 2.67 5.66" hpr="-14.2 175.8 1.6" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_branch.spm" xyz="15.70 -0.25 11.22" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-7.41 0.12 6.11" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-14.05 -0.54 9.37" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="14.42 0.16 9.37" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="12.49 -0.54 12.67" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="18.56 -0.39 5.83" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="12.05 -0.54 19.68" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="10.95 -0.41 16.50" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="15.04 -0.27 16.71" hpr="6.0 126.6 4.8" scale="0.38 0.38 0.38"/>
+    <static-object  model="dead_branch.spm" xyz="16.10 -0.52 19.45" hpr="6.0 126.6 4.8" scale="0.38 0.38 0.38"/>
+    <static-object  model="dead_branch.spm" xyz="12.50 -0.24 2.42" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="16.23 -0.24 2.42" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="21.65 -0.24 2.42" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="21.11 -0.24 -0.06" hpr="6.0 126.6 4.8" scale="0.58 0.58 0.58"/>
+    <static-object  model="dead_branch.spm" xyz="14.21 -0.24 -0.06" hpr="6.0 126.6 4.8" scale="0.58 0.58 0.58"/>
+    <static-object  model="dead_branch.spm" xyz="9.45 -0.24 -0.06" hpr="6.0 126.6 4.8" scale="0.58 0.58 0.58"/>
+    <static-object  model="dead_branch.spm" xyz="-12.14 -2.51 41.20" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-7.04 -2.51 41.20" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-7.04 -3.77 53.34" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-12.14 -3.77 53.34" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-12.14 -3.77 48.55" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-7.04 -3.77 48.55" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-7.04 -1.92 21.52" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-12.14 -1.92 21.52" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-17.71 -0.50 -5.64" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-103.73 -3.47 35.08" hpr="-17.6 161.6 0.7" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-68.92 -3.47 40.67" hpr="-17.7 -8.8 5.0" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-100.36 -2.32 -35.02" hpr="-4.0 4.2 -6.3" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-80.72 -2.44 -42.52" hpr="-3.7 4.5 -2.5" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-111.86 -1.79 -33.38" hpr="4.0 -177.6 -6.2" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-111.67 -1.86 -34.13" hpr="-4.0 4.2 -6.3" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-81.39 -2.12 -42.51" hpr="3.7 -175.8 -2.5" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-70.38 -2.22 -43.99" hpr="-21.3 4.5 -2.5" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-84.67 -2.66 85.19" hpr="-23.4 147.6 0.1" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-80.71 -2.65 87.71" hpr="-3.7 125.7 0.2" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-77.20 -2.65 91.53" hpr="-23.3 125.7 0.2" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-53.19 -2.38 105.44" hpr="-20.4 152.4 3.6" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-58.03 -2.64 103.59" hpr="-0.8 152.4 3.6" scale="1.00 1.00 1.00"/>
+    <static-object  lod_instance="true" lod_group="old_barrier" xyz="-62.69 -2.84 103.11" hpr="-20.8 174.2 2.5" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_branch.spm" xyz="-6.90 1.95 -18.58" hpr="-30.8 130.7 -24.3" scale="0.49 0.49 0.49"/>
+    <static-object  model="dead_branch.spm" xyz="14.65 9.53 -54.53" hpr="-2.7 159.4 -0.0" scale="1.00 1.00 1.00"/>
+    <static-object  model="dead_branch.spm" xyz="4.35 2.91 -21.93" hpr="-30.8 130.7 -24.3" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="13.71 2.85 -23.42" hpr="-30.8 130.7 -24.3" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="13.71 5.67 -42.22" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="29.76 4.25 -44.20" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="29.76 1.65 -8.02" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="12.50 0.18 7.50" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-12.14 -3.27 62.85" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-16.15 -4.45 103.24" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-36.23 -4.45 103.24" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-59.06 -4.45 96.71" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-73.48 -4.62 86.99" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-65.91 -4.62 68.25" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-94.04 -4.62 -55.02" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-64.61 -0.01 -87.47" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_tree_low.spm" xyz="-96.13 -4.83 118.48" hpr="0.0 178.8 0.0" scale="0.99 0.99 0.99"/>
+    <static-object  model="dead_branch.spm" xyz="-33.36 -0.99 -14.30" hpr="2.5 129.2 11.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="8.78 0.18 8.09" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="9.48 0.18 11.73" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="11.91 0.18 12.66" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="8.82 -0.16 13.99" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="7.80 0.18 10.40" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-9.16 -0.14 8.49" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-11.37 0.18 6.25" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-10.98 0.18 13.21" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-8.01 -0.42 12.59" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-12.78 0.18 15.52" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+    <static-object  model="dead_branch.spm" xyz="-8.30 -0.84 17.16" hpr="6.0 126.6 4.8" scale="0.45 0.45 0.45"/>
+  </track>
+  <object id="Ghost" type="animation" xyz="-67.86 -7.96 -26.49" hpr="0.0 75.1 0.0" scale="0.46 1.39 1.00" looped="y" interaction="ghost" model="ghost.spm" skeletal-animation="true">
+  </object>
+  <sun  fog="true" fog-color="5 15 40" fog-max="0.5" fog-start="10.00" fog-end="50.00" xyz="206.09 129.01 -272.04" sun-specular="69 69 103" sun-diffuse="54 93 255" ambient="22 40 168"/>
+  <sky-color rgb="7 7 11"/>
+  <weather lightning="true"/>
+  <sky-box texture="SKY0006.png SKY0001.png skybox_side.png skybox_side.png skybox_side.png skybox_side.png" sh-texture="skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png skybox_ibl.png"/>
+  <camera far="5000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="0" p1="-20.20 -87.10" p2="-11.93 -71.33"
+                min-height="3.81" same-group="1"/>
+  </checks>
+  <particle-emitter kind="fire.xml" id="Empty" xyz="-5.13 19.78 -115.89" h="-90.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.001" xyz="-5.15 19.78 -107.17" h="-90.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.002" xyz="-5.15 19.78 -99.01" h="-90.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.003" xyz="18.66 19.78 -99.78" h="-270.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.004" xyz="18.66 19.78 -107.81" h="-270.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.005" xyz="18.66 19.78 -116.38" h="-270.00" >
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" id="Empty.006" xyz="28.42 46.26 -80.29" h="0.00" >
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" id="Empty.007" xyz="5.96 13.58 -124.45" h="0.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.008" xyz="5.87 12.96 -123.87" h="0.00" >
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" id="Empty.009" xyz="-5.20 0.72 8.57" h="-215.36" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.010" xyz="-29.18 -4.23 108.15" h="0.00" >
+  </particle-emitter>
+  <particle-emitter kind="black_smoke.xml" id="Empty.011" xyz="-29.09 -3.61 107.57" h="0.00" >
+  </particle-emitter>
+  <particle-emitter kind="fire.xml" id="Empty.012" xyz="-5.48 0.24 8.75" h="-215.36" >
+  </particle-emitter>
+  <banana id="banana" x="-12.52" y="-2.70" z="89.47" h="-90.00" />
+  <banana id="banana.002" x="9.54" y="13.03" z="-100.93" h="-90.00" />
+  <banana id="banana.003" x="-15.08" y="4.85" z="-78.25" h="-90.00" />
+  <item id="gift.003" x="6.64" y="6.14" z="-26.80" h="-90.00" />
+  <item id="gift.004" x="-76.70" y="-6.54" z="21.54" h="-90.00" />
+  <item id="gift.005" x="6.58" y="6.14" z="-35.47" h="-90.00" />
+  <item id="gift.006" x="-3.49" y="10.96" z="-100.20" h="-180.00" />
+  <item id="gift.008" x="0.51" y="10.96" z="-100.20" h="-180.00" />
+  <item id="gift.011" x="-63.46" y="1.35" z="-79.49" h="-90.00" />
+  <item id="gift.013" x="-84.26" y="1.35" z="-27.78" h="-90.00" />
+  <item id="gift.016" x="-13.68" y="-1.18" z="87.29" h="-90.00" />
+  <item id="gift.017" x="-11.40" y="-1.18" z="91.20" h="-90.00" />
+  <item id="gift.022" x="6.52" y="6.14" z="-31.21" h="-90.00" />
+  <item id="gift.023" x="7.99" y="13.01" z="-73.26" h="-90.00" />
+  <item id="gift.025" x="3.60" y="13.01" z="-73.26" h="-90.00" />
+  <small-nitro id="nitro" x="22.08" y="1.90" z="-16.81" h="-180.00" />
+  <small-nitro id="nitro.001" x="23.00" y="3.11" z="-11.56" h="-180.00" />
+  <small-nitro id="nitro.002" x="41.86" y="5.06" z="-13.04" h="-180.00" />
+  <small-nitro id="nitro.004" x="50.44" y="5.06" z="-18.49" h="-180.00" />
+  <small-nitro id="nitro.006" x="49.63" y="5.06" z="-30.40" h="-180.00" />
+  <small-nitro id="nitro.008" x="37.32" y="5.06" z="-39.07" h="-180.00" />
+  <small-nitro id="nitros.000" x="-100.88" y="-2.90" z="-66.98" h="-90.00" />
+  <small-nitro id="nitros.001" x="-85.35" y="-5.30" z="-26.87" h="-90.00" />
+  <small-nitro id="nitros.002" x="-63.44" y="1.08" z="-76.47" h="-90.00" />
+  <small-nitro id="nitros.003" x="-50.25" y="-3.67" z="89.58" h="-90.00" />
+  <small-nitro id="nitros.005" x="-82.99" y="-5.30" z="-29.14" h="-90.00" />
+  <small-nitro id="nitros.006" x="-52.31" y="-3.67" z="94.17" h="-90.00" />
+  <light xyz="-11.81 34.24 -70.31" id="Lamp" distance="25.00" energy="2.00" color="255 43 0">
+  </light>
+  <light xyz="6.42 40.88 -69.02" id="Lamp.001" distance="25.00" energy="2.00" color="255 43 0">
+  </light>
+  <light xyz="20.83 34.97 -66.38" id="Lamp.002" distance="25.00" energy="2.00" color="255 43 0">
+  </light>
+  <light xyz="29.12 34.97 -66.38" id="Lamp.003" distance="25.00" energy="2.00" color="255 43 0">
+  </light>
+  <light xyz="5.75 14.90 -72.75" id="Lamp.004" distance="25.00" energy="2.00" color="255 43 0">
+  </light>
+  <light xyz="4.39 0.64 5.50" id="Lamp.005" distance="25.00" energy="1.00" color="255 74 0">
+  </light>
+  <light xyz="18.34 19.99 -99.42" id="Lamp.006" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="5.89 14.00 -123.93" id="Lamp.007" distance="25.00" energy="2.00" color="255 43 0">
+  </light>
+  <light xyz="11.57 14.48 -77.98" id="Lamp.008" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="18.02 19.99 -107.59" id="Lamp.009" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="18.20 19.99 -116.12" id="Lamp.010" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="-4.91 19.99 -116.12" id="Lamp.011" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="-5.09 19.99 -107.59" id="Lamp.012" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="-4.77 19.99 -99.42" id="Lamp.013" distance="25.00" energy="1.00" color="255 176 0">
+  </light>
+  <light xyz="-94.00 -4.24 55.71" id="Lamp.014" distance="25.00" energy="1.00" color="255 74 0">
+  </light>
+  <light xyz="-110.21 -2.41 -67.04" id="Lamp.015" distance="25.00" energy="1.00" color="255 74 0">
+  </light>
+  <light xyz="-29.22 -3.73 107.75" id="Lamp.016" distance="25.00" energy="2.00" color="255 74 0">
+  </light>
+  <light xyz="-15.97 1.49 12.60" id="Lamp.017" distance="2.00" energy="1.00" color="255 38 59">
+  </light>
+  <light xyz="-5.21 0.75 8.61" id="Lamp.018" distance="12.00" energy="1.00" color="255 13 5">
+  </light>
+  <light xyz="4.56 0.64 6.76" id="Lamp.019" distance="25.00" energy="1.00" color="255 74 0">
+  </light>
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+  <library name="stklib_candle_a" id="stklib_candle_a_main_proxy" xyz="-72.55 -1.40 -67.61" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy" xyz="5.65 1.97 38.08" hpr="-0.0 90.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.001" xyz="3.52 0.49 68.99" hpr="0.0 79.1 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.002" xyz="-8.14 -0.54 91.97" hpr="0.0 -3.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.003" xyz="-87.28 -3.12 34.00" hpr="-0.0 -113.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.004" xyz="-77.02 -3.91 26.44" hpr="0.0 56.5 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.005" xyz="-60.76 -3.74 -6.46" hpr="0.0 104.7 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.006" xyz="-76.58 0.14 64.48" hpr="-0.0 -113.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.007" xyz="-47.67 0.81 89.95" hpr="-0.0 -96.7 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.008" xyz="-92.61 -1.69 -30.83" hpr="0.0 -45.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.009" xyz="-96.68 0.11 -62.02" hpr="0.0 70.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.010" xyz="-68.17 3.63 -82.74" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.011" xyz="-23.46 11.35 -77.87" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_oldLantern_a" id="stklib_oldLantern_a_main_proxy.012" xyz="-7.58 12.35 -79.58" hpr="-0.0 -180.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy" xyz="6.85 -1.36 38.09" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.001" xyz="4.64 -2.84 69.24" hpr="-0.0 -10.9 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.002" xyz="-8.22 -3.85 93.14" hpr="0.0 -93.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.003" xyz="-88.39 -6.44 33.53" hpr="-0.0 156.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.004" xyz="-76.01 -7.23 27.11" hpr="0.0 -33.5 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.005" xyz="-59.57 -7.06 -6.77" hpr="0.0 14.7 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.006" xyz="-93.42 -5.01 -30.00" hpr="0.0 -135.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.007" xyz="-95.56 -3.21 -61.62" hpr="-0.0 -20.0 0.0" scale="1.00 1.00 1.00">
+  </library>
+  <library name="stklib_woodPostLamp_a" id="stklib_woodPostLamp_a_main_proxy.008" xyz="-68.11 0.33 -83.89" hpr="-0.0 90.0 -0.0" scale="1.00 1.00 1.00">
+  </library>
+</scene>

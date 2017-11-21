@@ -1,0 +1,146 @@
+
+
+
+babel-textures:
+	babel-trim11c.jpg
+		By Georges "TRaK" Grondin
+		drognin@gmail.com
+		http://trak.gigacities.net/
+		GPL
+-------------------------------------------------
+trak2:
+	trak2_holes1a.png
+		By Georges "TRaK" Grondin
+		drognin@gmail.com
+		http://www.mercenariesguild.net/trak/
+		GPL
+-------------------------------------------------
+trak3:
+	trak3_base1.png
+	trak3_base1-2.png
+	trak3_corrug1a.png
+	trak3_light1a.png
+	trak3_light1b.png
+	trak3_panel3d.png
+	trak3_screen.png
+	trak3_plate1.png
+	supp1k.png (selfmade from trak3_supp1k.tga)
+	
+		By Georges "TRaK" Grondin
+		drognin@gmail.com
+		http://www.mercenariesguild.net/trak/
+		GPL
+-------------------------------------------------
+trak5:
+	base1c.jpg
+	basictrim1a.jpg
+	comp1a.jpg
+	pipe1a.jpg
+	pipe1a-core.png (selfmade from pipe1a.jpg)
+	pipe1c.jpg
+	pipez1a.jpg
+	ribs1a.jpg
+	tile3b.jpg
+	trim1a.jpg
+	trim4b.jpg
+	trim6e.jpg
+	trim8b.jpg
+	vertpanel1b.jpg
+	vertpanel2b.jpg
+	wall1b.jpg
+	wall3b.jpg
+	thing.png (selfmade from base1c.jpg)
+	ceil1_inner.png	(selfmade from ceil1a.jpg)
+	ceil1_outer.png	(selfmade from ceil1a.jpg)
+	grate1a.jpg
+		By Georges "TRaK" Grondin
+		drognin@gmail.com
+		http://www.mercenariesguild.net/trak/
+		MIT license
+-------------------------------------------------
+http://opengameart.org:
+
+
+	bomber_metal1b.jpg
+	cromwatertower2.jpg
+	brushedbarrel.jpg
+		golgotha_useful
+		from Crack.com, Submitted by bart
+		CC0
+
+
+	ab_crate_a.png
+		Crates of the Future
+		from H-Hour
+		GPL 2.0
+
+	xeon6.ogg,
+		from bart
+		CC-BY-SA 3.0, 
+		length is adjusted to 2:37 min, because the original is too long.
+
+	
+	
+-------------------------------------------------
+STK: textures with "*" are changed
+
+	metal_plates.png*
+		by Dakal, CC-BY-SA 3.0
+	
+	concrete_plain*
+	 by Ivar ten Cate (Varivar), released under CC-BY-SA (varivar@gmail.com)
+	concrete_plain_dark (selfmade from concrete_plain)
+		from stk
+
+	bzzt2.ogg (at the moment unused)
+	(changed version from bzzt.ogg, that is released under the GNU GPL)
+
+tracks/xr:
+	marsrobot5.jpg*
+		dual-licensed under both GPL and CC-BY-SA
+	metaloverlap.png*
+	arc1.png
+	arc2.png
+
+tracks/mines:
+	metal_rusted.jpg*
+	lightHaloY
+	lightHaloB (selfmade from lightHaloY)
+	modern_mine_beam.png
+		textures from mines-track are licensed under CC BY-SA 3.0
+tracks/minigolf:
+	stone.jpg*
+
+
+------------------------------------------------
+other files
+
+window.png (selfmade)
+img_0572 based on an image from BurningWell
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

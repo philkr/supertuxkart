@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="ants.png" shader="alphatest"/>
+  <material name="BlackEyedSusan.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="BurdockLeaf.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Bush.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Catail.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Fern-6.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Flower3.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Flower3F.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Flower5.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="Flower5F.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="grass-border.png" shader="alphatest"/>
+  <material name="grass2.jpg" max-speed="0.70" slowdown-time="3.00">
+    <particles base="smoke_brown.xml" condition="drive"/>
+  </material>
+  <material name="GrassTall.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="invisible.png" fog="N" slowdown-time="0.20" max-speed="0.70" water-splash="Y" shader="alphatest">
+    <sfx filename="splash.ogg" min_speed="5.00" max_speed="15.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="road_dirt.jpg">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="stk_road_dirt.jpg">
+    <particles base="smoke_brown.xml" condition="skid"/>
+  </material>
+  <material name="StreamPlant.png" ignore="Y"/>
+  <material name="transparence.png" collision-detect="Y" falling-effect="Y" reset="Y" collision-reaction="reset" shader="alphatest"/>
+  <material name="transparence2.png" shader="alphatest" disable-z-write="Y"/>
+  <material name="vegetation_1.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="water_light2.png" surface="Y" water-splash="Y" shader="alphablend">
+    <sfx filename="splash.ogg" min_speed="5.00" max_speed="15.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="waterfall.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="waterfall_particle.png" fog="N" shader="alphablend"/>
+  <material name="wood_planks1.jpg">
+    <sfx positional="true" filename="wooden_bridge.ogg" min_speed="9.00" max_speed="22.00" min_pitch="1.00" max_pitch="1.70" rolloff="0.60"/>
+  </material>
+</materials>

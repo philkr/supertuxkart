@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="gfx_lavaGlow_a.png" shader="additive" disable-z-write="Y"/>
+  <material name="gfx_lightning_a.png" shader="additive" disable-z-write="Y"/>
+  <material name="gfx_lightningGlow_a.png" shader="additive" fog="N" disable-z-write="Y"/>
+  <material name="stktemple_waterWhite.png" shader="alphablend" surface="Y" disable-z-write="Y">
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="jungleVines_a.png" shader="grass" clampv="Y" ignore="Y" grass-speed="1.50" grass-amplitude="0.50"/>
+  <material name="stktex_temple_floodWarning_a.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="transparence2.png" shader="alphatest" collision-detect="Y" falling-effect="Y" reset="Y" collision-reaction="reset"/>
+</materials>

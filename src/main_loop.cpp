@@ -17,14 +17,17 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#define PYKART
+
 #include "main_loop.hpp"
 
 #include <assert.h>
-
 #include "config/user_config.hpp"
 #include "graphics/irr_driver.hpp"
 #include "graphics/material_manager.hpp"
 #include "guiengine/engine.hpp"
+#include "karts/abstract_kart.hpp"
+#include "karts/controller/controller.hpp"
 #include "input/input_manager.hpp"
 #include "input/wiimote_manager.hpp"
 #include "modes/profile_world.hpp"
@@ -261,6 +264,31 @@ void MainLoop::run()
             #ifdef ENABLE_WIIUSE
                 wiimote_manager->update();
             #endif
+            
+#ifdef PYKART
+			printf("%d / %d\n", 0, StateManager::get()->activePlayerCount());
+            // Find the corresponding PlayerKart from our ActivePlayer instance
+			
+            AbstractKart* pk = StateManager::get()->getActivePlayer(0)->getKart();
+
+            if (pk == NULL)
+            {
+                Log::error("InputManager::dispatchInput", "Trying to process "
+                    "action for an unknown player");
+                return;
+            }
+
+            Controller* controller = pk->getController();
+			
+//     PA_STEER_LEFT = 0,
+//     PA_STEER_RIGHT,
+//     PA_ACCEL,
+//     PA_BRAKE,
+//     PA_NITRO,
+//     PA_FIRE,
+	
+            if (controller != NULL) controller->action(PA_ACCEL, Input::MAX_VALUE);
+#endif // PYKART
             
             GUIEngine::update(dt);
             PROFILER_POP_CPU_MARKER();

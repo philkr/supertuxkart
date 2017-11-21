@@ -691,14 +691,6 @@ TrackObjectPresentationSound::TrackObjectPresentationSound(
     float max_dist = 390.0f;
     xml_node.get("max_dist", &max_dist );
 
-    // first try track dir, then global dir
-    std::string soundfile = Track::getCurrentTrack()->getTrackFile(sound);
-    //std::string soundfile = file_manager->getAsset(FileManager::MODEL,sound);
-    if (!file_manager->fileExists(soundfile))
-    {
-        soundfile = file_manager->getAsset(FileManager::SFX, sound);
-    }
-
     if (trigger_when_near)
     {
         ItemManager::get()->newItem(m_init_xyz, trigger_distance, this);

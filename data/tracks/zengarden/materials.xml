@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="wood_planks1.jpg" backface-culling="N"/>
+  <material name="Catail.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+  <material name="detailJapan.png" backface-culling="N" shader="alphatest"/>
+  <material name="dynamic_clouds.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="fence_pagoda.png" shader="alphatest"/>
+  <material name="japanRedWood.png" backface-culling="N"/>
+  <material name="koiFish.png" backface-culling="N" shader="alphatest"/>
+  <material name="lanternDirection.png" backface-culling="N"/>
+  <material name="lanternsupport.jpg" backface-culling="N"/>
+  <material name="lightHaloY.png" disable-z-write="Y" shader="additive"/>
+  <material name="monumentWater.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="monumentWater2.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="monumentWater3.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="pagoda_wall.png" backface-culling="N" shader="alphatest"/>
+  <material name="pix.png" reset="Y" shader="alphatest"/>
+  <material name="plants.jpg" backface-culling="N" mask="plants_alpha.jpg" shader="alphablend"/>
+  <material name="sakura_leaves.jpg" backface-culling="N" disable-z-write="Y" mask="sakura_leaves_alpha.jpg" shader="alphatest"/>
+  <material name="shintoB.jpg" backface-culling="N"/>
+  <material name="tree_1.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="tree_1Low.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="vegetation_1.png" backface-culling="N" ignore="Y" shader="alphatest"/>
+  <material name="water_light2.png" disable-z-write="Y" reset="Y" surface="Y" water-splash="Y" shader="alphablend">
+    <sfx filename="splash.ogg" min_speed="0.00" max_speed="0.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
+    <particles condition="skid drive" base="splash.xml"/>
+  </material>
+  <material name="water_light3.png" falling-effect="Y" water-splash="Y"/>
+  <material name="waterlily.png" disable-z-write="Y" ignore="Y" shader="alphatest"/>
+  <material name="waterparticles.png" disable-z-write="Y" shader="alphablend"/>
+  <material name="wooden2.png" backface-culling="N" disable-z-write="Y" ignore="Y" shader="alphablend"/>
+</materials>

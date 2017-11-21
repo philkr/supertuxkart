@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 16945 -->
+<kart name              = "Sara the Racer"
+      version           = "3"
+      model-file        = "sara the racer.spm"
+      icon-file         = "icon-sara.png"
+      minimap-icon-file = "icon-sara.png"
+      shadow-file       = "turbinia_shadow.png"
+      type              = "light"
+      groups            = "standard"
+      rgb               = "1.00 1.00 1.00" >
+  <sounds engine = "large"/>
+  <animations left = "0"
+              straight = "20"
+              right = "40"
+              start-jump = "50"
+              end-jump = "70"
+              start-winning = "71"
+              start-winning-loop = "99"
+              end-winning = "116"
+              start-losing = "117"
+              start-losing-loop = "144"
+              end-losing = "165"/>
+  <wheels>
+    <rear-left position = "-0.143815 0.109919 -0.403447"
+                 model    = "wheel-rear-left.spm"       />
+    <rear-right position = "0.143815 0.109919 -0.403447"
+                 model    = "wheel-rear-right.spm"       />
+    <front-right position = "0.000000 0.097489 0.481675"
+                 model    = "wheel-front-right.spm"       />
+  </wheels>
+  <speed-weighted-objects>
+    <object position="-0.000000 0.269588 -0.364707"
+            rotation="9.629410 2.709944 -15.571315"
+            scale="0.474882 0.474882 0.474882"
+            texture-speed-x="0.500000" texture-speed-y="0.000000"
+            model="exhaust.spm"/>
+  </speed-weighted-objects>
+  <nitro-emitter>
+    <nitro-emitter-a position = "0.015415 0.294082 -0.508180" />
+    <nitro-emitter-b position = "-0.015024 0.294082 -0.508180" />
+  </nitro-emitter>
+  <headlights>
+    <object position="0.042844 0.413887 0.479152"
+            rotation="-0.000000 -0.000000 0.000005"
+            scale="1.000000 1.000000 1.000000"
+            bone="bike_tilting"
+            model="headlight_1.spm"/>
+    <object position="-0.042845 0.413887 0.479157"
+            rotation="-0.000000 -0.000000 0.000005"
+            scale="1.000000 1.000000 1.000000"
+            bone="bike_tilting"
+            model="headlight_2.spm"/>
+  </headlights>
+  <hat position="0.001994 0.956203 0.044615"
+       rotation="3.577324 0.508202 0.338355"
+       scale="1.000000 1.000000 1.000000"
+       bone="head"/>
+  <lean max="*0-6.6"/>
+  <exhaust file="kart_exhaust.xml"/>
+</kart>
