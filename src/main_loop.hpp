@@ -19,13 +19,10 @@
 
 #ifndef HEADER_MAIN_LOOP_HPP
 #define HEADER_MAIN_LOOP_HPP
+#include "pykart_controller.h"
 
 typedef unsigned long Uint32;
 
-struct PyKartController {
-	bool running = false;
-	unsigned char action_state[8] = {0};
-};
 extern PyKartController * pykart_controller;
 
 /** Management class for the whole gameflow, this is where the

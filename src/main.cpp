@@ -166,6 +166,12 @@
 #include <sstream>
 #include <algorithm>
 
+#include <boost/interprocess/shared_memory_object.hpp>
+#include <boost/interprocess/mapped_region.hpp>
+#include <boost/interprocess/sync/interprocess_mutex.hpp>
+#include <boost/interprocess/sync/interprocess_condition.hpp>
+#include <boost/interprocess/sync/scoped_lock.hpp>
+
 #include <IEventReceiver.h>
 
 #include "main_loop.hpp"
@@ -240,6 +246,10 @@
 static void cleanSuperTuxKart();
 static void cleanUserConfig();
 void runUnitTests();
+
+namespace ip = boost::interprocess;
+ip::shared_memory_object shmem;
+ip::mapped_region region;
 
 // ============================================================================
 //                        gamepad visualisation screen
@@ -575,6 +585,7 @@ void cmdLineHelp()
     // "       --test-ai=n        Use the test-ai for every n-th AI kart.\n"
     // "                          (so n=1 means all Ais will be the test ai)\n"
     // "
+    "       --shmem=name       Shared memory object to use.\n"
     "       --server=name      Start a server (not a playing client).\n"
     "       --public-server    Allow direct connection to the server (without stk server)\n"
     "       --lan-server=name  Start a LAN server (not a playing client).\n"
@@ -975,6 +986,12 @@ int handleCmdLine()
             UserConfigParams::m_physics_debug=1;
         if(CommandLine::has("--check-debug"))
             UserConfigParams::m_check_debug=true;
+    }
+    if (CommandLine::has("--shmem", &s))
+    {
+		shmem = ip::shared_memory_object(ip::open_only, s.c_str(), ip::read_write);
+		region = ip::mapped_region(shmem, ip::read_write, 0, sizeof(PyKartController) + 100);
+		pykart_controller = (PyKartController*)region.get_address();
     }
 
     // Networking command lines

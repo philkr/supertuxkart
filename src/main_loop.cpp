@@ -38,6 +38,10 @@
 #include "race/history.hpp"
 #include "race/race_manager.hpp"
 #include "states_screens/state_manager.hpp"
+#include "tracks/drive_graph.hpp"
+#include "tracks/drive_node.hpp"
+#include "tracks/track.hpp"
+#include "tracks/track_sector.hpp"
 #include "utils/profiler.hpp"
 
 MainLoop* main_loop = 0;
@@ -226,7 +230,9 @@ void MainLoop::updateRace(float dt)
 void MainLoop::run()
 {
     IrrlichtDevice* device = irr_driver->getDevice();
-
+	
+	if (pykart_controller) pykart_controller->running = 1;
+	
     m_curr_time = device->getTimer()->getRealTime();
     while(!m_abort)
     {
@@ -264,8 +270,16 @@ void MainLoop::run()
                 wiimote_manager->update();
             #endif
             
-			if (pykart_controller) {
-				printf("%d / %d\n", 0, StateManager::get()->activePlayerCount());
+			if (pykart_controller && StateManager::get()->activePlayerCount()) {
+				// Let make sure we don't read and write at the same time
+				pykart_controller->write_lock = 1;
+				volatile uint8_t & lk = pykart_controller->read_lock; // Let's be paranoid
+				while(lk == 1 && pykart_controller->running && !pykart_controller->quit) {
+					pykart_controller->write_lock = 0;
+					usleep(50);
+					pykart_controller->write_lock = 1;
+				}
+				
 				// Find the corresponding PlayerKart from our ActivePlayer instance
 				
 				AbstractKart* pk = StateManager::get()->getActivePlayer(0)->getKart();
@@ -278,14 +292,82 @@ void MainLoop::run()
 							controller->action((PlayerAction)i, (pykart_controller->action_state[i]&1) * Input::MAX_VALUE);
 						}
 				
+				if (pykart_controller->quit) m_abort = 1;
 				
-	//     PA_STEER_LEFT = 0,
-	//     PA_STEER_RIGHT,
-	//     PA_ACCEL,
-	//     PA_BRAKE,
-	//     PA_NITRO,
-	//     PA_FIRE,
-		
+				pykart_controller->running = true;
+				if (pykart_controller->restart) {
+					// Restart the level
+					pykart_controller->restart = false;
+					if (race_manager)
+						race_manager->rerunRace();
+					
+					pykart_controller->running = false;
+				}
+				
+				// Write back the state
+				pykart_controller->timestamp = m_curr_time;
+				pykart_controller->speed = pk->getSpeed();
+				pykart_controller->smooth_speed = pk->getSmoothedSpeed();
+				pykart_controller->wrongway = pk->getWrongwayCounter();
+				pykart_controller->energy = pk->getEnergy();
+				pykart_controller->finish_time = pk->getFinishTime();
+				pykart_controller->racing = pk->hasFinishedRace();
+				pykart_controller->position_in_race = pk->getPosition();
+				
+				const World* const world = World::getWorld();
+				const LinearWorld *lw = dynamic_cast<const LinearWorld*>(world);
+				
+				pykart_controller->angle = pykart_controller->distance_to_center = pykart_controller->position_along_track = 0;
+					
+				if (lw) {
+					pykart_controller->position_along_track = lw->getOverallDistance(pk->getWorldKartId()) / Track::getCurrentTrack()->getTrackLength();
+					pykart_controller->distance_to_center = lw->getDistanceToCenterForKart(pk->getWorldKartId());
+					
+					// Compute the angle between the Kart and the map
+					int sector = lw->getTrackSector(pk->getWorldKartId())->getCurrentGraphNode();
+					if (DriveGraph::get()->getNumberOfSuccessors(sector) <= 1) {
+						// check if the player is going in the wrong direction
+						const DriveNode* node = DriveGraph::get()->getNode(sector);
+						Vec3 c = node->getUpperCenter() - node->getLowerCenter();
+						Vec3 v = pk->getVelocity();
+						
+						pykart_controller->angle = atan2(c.z(), c.x()) - atan2(v.z(), v.x());
+						if (pykart_controller->angle < -3.1415 / 2.) pykart_controller->angle += 3.1415;
+						if (pykart_controller->angle >  3.1415 / 2.) pykart_controller->angle -= 3.1415;
+						if (fabs(v.x()) + fabs(v.z()) < 0.1) pykart_controller->angle = 0;
+					}
+
+				
+				
+
+				}
+				
+				irr::video::IImage * img = irr_driver->getVideoDriver()->createScreenShot();
+				if (img) {
+					auto dim = img->getDimension();
+					pykart_controller->width  = dim.Width;
+					pykart_controller->height = dim.Height;
+					
+					if (img->getColorFormat() == irr::video::ECF_R8G8B8) {
+						void * data = img->lock();
+						memcpy(pykart_controller->img_data, data, pykart_controller->width*pykart_controller->height*3);
+						img->unlock();
+					} else if (img->getColorFormat() == irr::video::ECF_A8R8G8B8) {
+						const uint8_t * data = (const uint8_t*)img->lock();
+						for(size_t i=0; i<(size_t)pykart_controller->width * (size_t)pykart_controller->height; i++) {
+							pykart_controller->img_data[3*i+0] = data[4*i+1];
+							pykart_controller->img_data[3*i+1] = data[4*i+2];
+							pykart_controller->img_data[3*i+2] = data[4*i+3];
+						}
+						img->unlock();
+					} else {
+						printf("Unknown image format %d\n", (int)img->getColorFormat());
+					}
+					img->drop();
+				}
+				pykart_controller->write_lock = 0;
+			} else if (pykart_controller) {
+				pykart_controller->running = false;
 			}
             
             GUIEngine::update(dt);
@@ -332,6 +414,10 @@ void MainLoop::run()
         PROFILER_SYNC_FRAME();
     }  // while !m_abort
 
+	if (pykart_controller) {
+		pykart_controller->running = 0;
+		pykart_controller->quit = 1;
+	}
 }   // run
 
 //-----------------------------------------------------------------------------

@@ -40,6 +40,10 @@ mark_as_advanced(WIIUSE_BUILD)
 
 option(USE_WIIUSE "Support for wiimote input devices" OFF)
 
+FIND_PACKAGE(Boost REQUIRED COMPONENTS system)
+INCLUDE_DIRECTORIES(SYSTEM ${Boost_INCLUDE_DIR})
+LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
+
 set(STK_SOURCE_DIR "src")
 set(STK_DATA_DIR "${PROJECT_SOURCE_DIR}/data")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
@@ -267,6 +271,9 @@ else()
     include_directories(${CURL_INCLUDE_DIRS})
 endif()
 
+if(UNIX AND NOT APPLE)
+        target_link_libraries(supertuxkart rt)
+endif()
 # Common library dependencies
 target_link_libraries(supertuxkart
     bulletdynamics
@@ -274,6 +281,7 @@ target_link_libraries(supertuxkart
     bulletmath
     enet
     stkirrlicht
+    ${Boost_LIBRARIES}
     ${Angelscript_LIBRARIES}
     ${CURL_LIBRARIES}
     ${OGGVORBIS_LIBRARIES}
@@ -355,3 +363,4 @@ if(CHECK_ASSETS)
   endif()
 endif()
 
+add_subdirectory(pykart)
