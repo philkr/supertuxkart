@@ -22,6 +22,11 @@
 
 typedef unsigned long Uint32;
 
+struct PyKartController {
+	bool running = false;
+	unsigned char action_state[8] = {0};
+};
+extern PyKartController * pykart_controller;
 
 /** Management class for the whole gameflow, this is where the
     main-loop is */

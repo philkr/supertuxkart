@@ -17,8 +17,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#define PYKART
-
 #include "main_loop.hpp"
 
 #include <assert.h>
@@ -43,6 +41,7 @@
 #include "utils/profiler.hpp"
 
 MainLoop* main_loop = 0;
+PyKartController * pykart_controller = 0;
 
 MainLoop::MainLoop() :
 m_abort(false)
@@ -265,30 +264,29 @@ void MainLoop::run()
                 wiimote_manager->update();
             #endif
             
-#ifdef PYKART
-			printf("%d / %d\n", 0, StateManager::get()->activePlayerCount());
-            // Find the corresponding PlayerKart from our ActivePlayer instance
-			
-            AbstractKart* pk = StateManager::get()->getActivePlayer(0)->getKart();
-
-            if (pk == NULL)
-            {
-                Log::error("InputManager::dispatchInput", "Trying to process "
-                    "action for an unknown player");
-                return;
-            }
-
-            Controller* controller = pk->getController();
-			
-//     PA_STEER_LEFT = 0,
-//     PA_STEER_RIGHT,
-//     PA_ACCEL,
-//     PA_BRAKE,
-//     PA_NITRO,
-//     PA_FIRE,
-	
-            if (controller != NULL) controller->action(PA_ACCEL, Input::MAX_VALUE);
-#endif // PYKART
+			if (pykart_controller) {
+				printf("%d / %d\n", 0, StateManager::get()->activePlayerCount());
+				// Find the corresponding PlayerKart from our ActivePlayer instance
+				
+				AbstractKart* pk = StateManager::get()->getActivePlayer(0)->getKart();
+				// Take an action
+				Controller* controller = pk->getController();
+				if (controller != NULL) 
+					for (int i=0; i<=PA_FIRE; i++)
+						if (!(pykart_controller->action_state[i] & 2)) {
+							pykart_controller->action_state[i] |= 2;
+							controller->action((PlayerAction)i, (pykart_controller->action_state[i]&1) * Input::MAX_VALUE);
+						}
+				
+				
+	//     PA_STEER_LEFT = 0,
+	//     PA_STEER_RIGHT,
+	//     PA_ACCEL,
+	//     PA_BRAKE,
+	//     PA_NITRO,
+	//     PA_FIRE,
+		
+			}
             
             GUIEngine::update(dt);
             PROFILER_POP_CPU_MARKER();
