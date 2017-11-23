@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<materials>
+  <material name="banana.png"/>
+  <material name="gift-box.png"/>
+  <material name="gift-loop.png" gloss-map="gift-loop-gloss.png"/>
+  <material name="gold.png" gloss-map="trophy_glossmap.png"/>
+  <material name="silver.png" gloss-map="trophy_glossmap.png"/>
+  <material name="bronze.png" gloss-map="trophy_glossmap.png"/>
+
+  <material name="stk_mod_nitroBarrel.png" /> 
+  <material name="stk_mod_nitroBottle.png" />
+  <material name="stk_mod_nitroLogo.png" shader="additive" disable-z-write="Y" />
+
+  <material name="traffic_light.png" shader="unlit"/>
+  
+  <material name="bowling.png" gloss-map="bowling_spec.png"/>
+  
+  <material name="thunderbird.png" shader="alphatest"/>
+  <material name="bubblegum_shield.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="bubblegum_shield_nolok.png" shader="alphablend" disable-z-write="Y"/>
+  <material name="parachute.png" backface-culling="n" ignore="Y"/>
+  <material name="zipper.png" shader="unlit" zipper="Y"/>
+</materials>
+

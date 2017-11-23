@@ -12,7 +12,6 @@ make*.bat
 __pycache__
 
 data/editor
-data/models
 data/music
 data/sfx
 data/wip-tracks
