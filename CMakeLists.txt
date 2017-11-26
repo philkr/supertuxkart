@@ -212,12 +212,14 @@ source_group_hierarchy(STK_SOURCES STK_HEADERS)
 
 if(APPLE)
     # icon files to copy in the bundle
-    set(OSX_ICON_FILES ${PROJECT_SOURCE_DIR}/data/supertuxkart.icns)
-    set_source_files_properties(${OSX_ICON_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
-    set(STK_SOURCES ${STK_SOURCES} ${OSX_ICON_FILES})
+#    set(OSX_ICON_FILES ${PROJECT_SOURCE_DIR}/data/supertuxkart.icns)
+#    set_source_files_properties(${OSX_ICON_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+#    set(STK_SOURCES ${STK_SOURCES} ${OSX_ICON_FILES})
+
+    add_definitions(-DSUPERTUXKART_DATADIR=\".\")
 
     # build the executable and create an app bundle
-    add_executable(supertuxkart MACOSX_BUNDLE ${STK_SOURCES})
+    add_executable(supertuxkart ${STK_SOURCES})
 
     find_library(IOKIT_LIBRARY IOKit)
     find_library(QUICKTIME_LIBRARY QuickTime)
@@ -231,18 +233,6 @@ if(APPLE)
          ${CARBON_LIBRARY}
          ${AUDIOUNIT_LIBRARY}
          ${COCOA_LIBRARY})
-
-    # configure CMake to use a custom Info.plist
-    set_target_properties(supertuxkart PROPERTIES
-        MACOSX_BUNDLE_INFO_PLIST ${PROJECT_SOURCE_DIR}/data/SuperTuxKart-Info.plist)
-
-    if(CMAKE_GENERATOR MATCHES "Xcode")
-        add_custom_command(TARGET supertuxkart POST_BUILD
-            COMMAND ln -f -s ${PROJECT_SOURCE_DIR}/data ${CMAKE_BINARY_DIR}/bin/\${CONFIGURATION}/supertuxkart.app/Contents/Resources)
-    else()
-        add_custom_command(TARGET supertuxkart POST_BUILD
-            COMMAND ln -f -s ${PROJECT_SOURCE_DIR}/data ${CMAKE_BINARY_DIR}/bin/supertuxkart.app/Contents/Resources)
-    endif()
 else()
     if(MSVC)
         set(PTHREAD_NAMES pthreadVC2)
@@ -301,15 +291,6 @@ endif()
 # FreeBSD does not search in /usr/local/lib, but at least Freetype is installed there :(
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
     SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/local/lib")
-endif()
-
-if(APPLE)
-    # In theory it would be cleaner to let CMake detect the right dependencies. In practice, this means that if a OSX user has
-    # unix-style installs of Vorbis/Ogg/OpenAL/etc. they will be picked up over our frameworks. This is blocking when I make releases :
-    # the mac I use to make STK releases does have other installs of vorbis/ogg/etc. which aren't compatible with STK, so letting
-    # CMake pick the library it wants essentially means I can't build.
-    set_target_properties(supertuxkart PROPERTIES LINK_FLAGS "-arch x86_64 -F/Library/Frameworks -framework OpenAL -framework Ogg -framework Vorbis")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I/Library/Frameworks/OpenAL.framework/Versions/A/Headers")
 endif()
 
 if(MSVC OR MINGW)

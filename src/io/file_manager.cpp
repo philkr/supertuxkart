@@ -71,42 +71,42 @@ namespace irr {
 std::vector<std::string> FileManager::m_root_dirs;
 std::string              FileManager::m_stdout_filename = "stdout.log";
 
-#ifdef __APPLE__
-// dynamic data path detection onmac
-#  include <CoreFoundation/CoreFoundation.h>
-
-bool macSetBundlePathIfRelevant(std::string& data_dir)
-{
-    Log::debug("[FileManager]", "Checking whether we are using an app bundle... ");
-    // the following code will enable STK to find its data when placed in an
-    // app bundle on mac OS X.
-    // returns true if path is set, returns false if path was not set
-    char path[1024];
-    CFBundleRef main_bundle = CFBundleGetMainBundle(); assert(main_bundle);
-    CFURLRef main_bundle_URL = CFBundleCopyBundleURL(main_bundle);
-    assert(main_bundle_URL);
-    CFStringRef cf_string_ref = CFURLCopyFileSystemPath(main_bundle_URL,
-                                                        kCFURLPOSIXPathStyle);
-    assert(cf_string_ref);
-    CFStringGetCString(cf_string_ref, path, 1024, kCFStringEncodingASCII);
-    CFRelease(main_bundle_URL);
-    CFRelease(cf_string_ref);
-
-    std::string contents = std::string(path) + std::string("/Contents");
-    if(contents.find(".app") != std::string::npos)
-    {
-        Log::debug("[FileManager]", "yes");
-        // executable is inside an app bundle, use app bundle-relative paths
-        data_dir = contents + std::string("/Resources/");
-        return true;
-    }
-    else
-    {
-        Log::debug("[FileManager]", "no");
-        return false;
-    }
-}
-#endif
+//#ifdef __APPLE__
+//// dynamic data path detection onmac
+//#  include <CoreFoundation/CoreFoundation.h>
+//
+//bool macSetBundlePathIfRelevant(std::string& data_dir)
+//{
+//    Log::debug("[FileManager]", "Checking whether we are using an app bundle... ");
+//    // the following code will enable STK to find its data when placed in an
+//    // app bundle on mac OS X.
+//    // returns true if path is set, returns false if path was not set
+//    char path[1024];
+//    CFBundleRef main_bundle = CFBundleGetMainBundle(); assert(main_bundle);
+//    CFURLRef main_bundle_URL = CFBundleCopyBundleURL(main_bundle);
+//    assert(main_bundle_URL);
+//    CFStringRef cf_string_ref = CFURLCopyFileSystemPath(main_bundle_URL,
+//                                                        kCFURLPOSIXPathStyle);
+//    assert(cf_string_ref);
+//    CFStringGetCString(cf_string_ref, path, 1024, kCFStringEncodingASCII);
+//    CFRelease(main_bundle_URL);
+//    CFRelease(cf_string_ref);
+//
+//    std::string contents = std::string(path) + std::string("/Contents");
+//    if(contents.find(".app") != std::string::npos)
+//    {
+//        Log::debug("[FileManager]", "yes");
+//        // executable is inside an app bundle, use app bundle-relative paths
+//        data_dir = contents + std::string("/Resources/");
+//        return true;
+//    }
+//    else
+//    {
+//        Log::debug("[FileManager]", "no");
+//        return false;
+//    }
+//}
+//#endif
 
 // ============================================================================
 FileManager* file_manager = 0;
@@ -140,7 +140,6 @@ FileManager::FileManager()
     char buffer[256];
     getcwd(buffer, 256);
 #endif
-
 #ifdef __APPLE__
     chdir( buffer );
 #endif
@@ -170,9 +169,9 @@ FileManager::FileManager()
         exe_path += "/";
     if ( getenv ( "SUPERTUXKART_DATADIR" ) != NULL )
         root_dir = std::string(getenv("SUPERTUXKART_DATADIR"))+"/data/" ;
-#ifdef __APPLE__
-    else if( macSetBundlePathIfRelevant( root_dir ) ) { root_dir = root_dir + "data/"; }
-#endif
+//#ifdef __APPLE__
+//    else if( macSetBundlePathIfRelevant( root_dir ) ) { root_dir = root_dir + "data/"; }
+//#endif
     else if(fileExists("data/", version))
         root_dir = "data/" ;
     else if(fileExists("../data/", version))
@@ -198,7 +197,7 @@ FileManager::FileManager()
         root_dir = "/usr/local/share/games/supertuxkart/";
 #endif
     }
-
+    root_dir = createAbsoluteFilename(root_dir).c_str();
     if (!m_file_system->existFile((root_dir + version).c_str()))
     {
         Log::error("FileManager", "Could not file '%s'in any "

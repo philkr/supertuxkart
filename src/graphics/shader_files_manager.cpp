@@ -59,7 +59,7 @@ void ShaderFilesManager::readFile(const std::string& file,
     
     if (!stream.is_open())
     {
-        Log::error("ShaderFilesManager", "Can not open '%s'.", file.c_str());
+        Log::error("ShaderFilesManager", "Can not open '%s' in '%s'.", file.c_str(), file_manager->getShader(file).c_str());
         return;
     }
     

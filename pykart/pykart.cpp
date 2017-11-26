@@ -15,6 +15,8 @@
 #include <sys/prctl.h>
 #endif
 
+extern char **environ;
+
 namespace ip = boost::interprocess;
 namespace bp = boost::python;
 
