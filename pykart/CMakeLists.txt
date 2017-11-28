@@ -9,7 +9,7 @@ FIND_PACKAGE(NumPy REQUIRED)
 set(version ${PYTHONLIBS_VERSION_STRING})
 
 STRING( REPLACE "." "" boost_py_version ${version} )
-find_package(Boost 1.55 COMPONENTS "python-py${boost_py_version}")
+find_package(Boost 1.55 COMPONENTS "python-py${boost_py_version}" filesystem system)
 set(Boost_PYTHON_FOUND ${Boost_PYTHON-PY${boost_py_version}_FOUND})
 
 while(NOT "${version}" STREQUAL "" AND NOT Boost_PYTHON_FOUND)
@@ -25,7 +25,7 @@ while(NOT "${version}" STREQUAL "" AND NOT Boost_PYTHON_FOUND)
         endif()
 endwhile()
 if(NOT Boost_PYTHON_FOUND)
-        find_package(Boost 1.55 COMPONENTS python filesystem system)
+        find_package(Boost 1.55 COMPONENTS python filesystem system REQUIRED)
 endif()
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR} ${PYTHON_NUMPY_INCLUDE_DIR})
 
