@@ -20,10 +20,14 @@
 #ifndef HEADER_MAIN_LOOP_HPP
 #define HEADER_MAIN_LOOP_HPP
 #include "pykart_controller.h"
+#include <unordered_map>
 
 typedef unsigned long Uint32;
 
 extern PyKartController * pykart_controller;
+
+class AbstractKart;
+class Controller;
 
 /** Management class for the whole gameflow, this is where the
     main-loop is */
@@ -38,6 +42,7 @@ private:
 
     Uint32   m_curr_time;
     Uint32   m_prev_time;
+    std::unordered_map<AbstractKart*, Controller*> ai;
     float    getLimitedDt();
     void     updateRace(float dt);
 public:

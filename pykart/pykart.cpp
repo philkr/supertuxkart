@@ -185,6 +185,12 @@ public:
 			state["finish_time"] = sh->finish_time;
 			state["angle"] = sh->angle;
 			state["timestamp"] = sh->timestamp;
+			{
+				int32_t ai_action = 0;
+				for (int i=0; i<8; i++)
+					ai_action |= ((int32_t)!!sh->ai_action_state[i])<<i;
+				state["ai_action"] = (int)ai_action;
+			}
 			
 			// Fetch the observation
 			bp::object obs;

@@ -12,24 +12,21 @@ t3 = time()
 print( K.running, t1-t0, t2-t1, t3-t2 )
 
 im, lbl = None, None
-fwd, left, right = 1, 0, 0
+action = 0
 for i in range(10000):
-	state, obs = K.step(4*fwd + 1 * left + 2 * right)
-	left = -state['angle'] + 0.1*state['distance_to_center'] > .1# or state['distance_to_center'] > 0.2
-	right = -state['angle'] + 0.1*state['distance_to_center'] < -.1# or state['distance_to_center'] < -0.2
-	fwd = 1
-	if abs(state['angle']) > 0.4:
-		fwd = random()>0.5
+	state, obs = K.step(action)
+	action = state['ai_action']
+	sleep(0.01)
 	
-	print( state )
-	from pylab import *
-	ion()
-	#figure()
-	#subplot(1,2,1)
-	if obs is not None:
-		if im is None:
-			im = imshow(obs)
-		else:
-			im.set_data(obs)
-	draw()
-	pause(0.001)
+	#print( state, action )
+	#from pylab import *
+	#ion()
+	##figure()
+	##subplot(1,2,1)
+	#if obs is not None:
+		#if im is None:
+			#im = imshow(obs)
+		#else:
+			#im.set_data(obs)
+	#draw()
+	#pause(0.001)

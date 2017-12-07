@@ -25,6 +25,7 @@
 #include "graphics/material_manager.hpp"
 #include "guiengine/engine.hpp"
 #include "karts/abstract_kart.hpp"
+#include "karts/controller/skidding_ai.hpp"
 #include "karts/controller/controller.hpp"
 #include "input/input_manager.hpp"
 #include "input/wiimote_manager.hpp"
@@ -251,25 +252,6 @@ void MainLoop::run()
 
         if (World::getWorld())  // race is active if world exists
         {
-            PROFILER_PUSH_CPU_MARKER("Update race", 0, 255, 255);
-            updateRace(dt);
-            PROFILER_POP_CPU_MARKER();
-        }   // if race is active
-
-        // We need to check again because update_race may have requested
-        // the main loop to abort; and it's not a good idea to continue
-        // since the GUI engine is no more to be called then.
-        // Also only do music, input, and graphics update if graphics are
-        // enabled.
-        if (!m_abort && !ProfileWorld::isNoGraphics())
-        {
-            PROFILER_PUSH_CPU_MARKER("Input/GUI", 0x7F, 0x00, 0x00);
-            input_manager->update(dt);
-
-            #ifdef ENABLE_WIIUSE
-                wiimote_manager->update();
-            #endif
-            
 			if (pykart_controller && StateManager::get()->activePlayerCount()) {
 				// Let make sure we don't read and write at the same time
 				pykart_controller->write_lock = 1;
@@ -281,17 +263,47 @@ void MainLoop::run()
 				}
 				
 				// Find the corresponding PlayerKart from our ActivePlayer instance
-				
 				AbstractKart* pk = StateManager::get()->getActivePlayer(0)->getKart();
-				// Take an action
+				
+				// Handle control
 				Controller* controller = pk->getController();
-				if (controller != NULL) 
+				if (controller != NULL) {
+					// Fetch controller state
+					KartControl c = pk->getControls();
+					
+					// Get the AI moves
+					if (!ai.count(pk)) {
+						auto d = race_manager->getDifficulty();
+						race_manager->setDifficulty(RaceManager::DIFFICULTY_BEST);
+						ai[pk] = new SkiddingAI(pk);
+						race_manager->setDifficulty(d);
+					}
+					ai[pk]->update(dt);
+					
+					KartControl cc = pk->getControls();
+					
+					// Get the control
+					pykart_controller->ai_action_state[PA_FIRE] = cc.getFire();
+					pykart_controller->ai_action_state[PA_RESCUE] = cc.getRescue();
+					pykart_controller->ai_action_state[PA_ACCEL] = cc.getAccel() > 0.01;
+					pykart_controller->ai_action_state[PA_BRAKE] = cc.getBrake();
+					pykart_controller->ai_action_state[PA_NITRO] = cc.getNitro();
+					pykart_controller->ai_action_state[PA_STEER_LEFT] = cc.getSteer()-c.getSteer() < -.01;
+					pykart_controller->ai_action_state[PA_STEER_RIGHT] = cc.getSteer()-c.getSteer() > .01;
+					pykart_controller->ai_action_state[PA_DRIFT] = cc.getSkidControl() != KartControl::SC_NONE;
+					
+					// Reset the control
+					pk->getControls() = c;
+					
+// 					memcpy(pykart_controller->action_state, pykart_controller->ai_action_state, sizeof(pykart_controller->action_state));
+					
+					// Take an action
 					for (int i=0; i<=PA_FIRE; i++)
 						if (!(pykart_controller->action_state[i] & 2)) {
 							pykart_controller->action_state[i] |= 2;
 							controller->action((PlayerAction)i, (pykart_controller->action_state[i]&1) * Input::MAX_VALUE);
 						}
-				
+				}
 				if (pykart_controller->quit) m_abort = 1;
 				
 				pykart_controller->running = true;
@@ -337,38 +349,57 @@ void MainLoop::run()
 						if (fabs(v.x()) + fabs(v.z()) < 0.1) pykart_controller->angle = 0;
 					}
 
-				
-				
-
 				}
-				
-				irr::video::IImage * img = irr_driver->getVideoDriver()->createScreenShot();
-				if (img) {
-					auto dim = img->getDimension();
-					pykart_controller->width  = dim.Width;
-					pykart_controller->height = dim.Height;
-					
-					if (img->getColorFormat() == irr::video::ECF_R8G8B8) {
-						void * data = img->lock();
-						memcpy(pykart_controller->img_data, data, pykart_controller->width*pykart_controller->height*3);
-						img->unlock();
-					} else if (img->getColorFormat() == irr::video::ECF_A8R8G8B8) {
-						const uint8_t * data = (const uint8_t*)img->lock();
-						for(size_t i=0; i<(size_t)pykart_controller->width * (size_t)pykart_controller->height; i++) {
-							pykart_controller->img_data[3*i+0] = data[4*i+1];
-							pykart_controller->img_data[3*i+1] = data[4*i+2];
-							pykart_controller->img_data[3*i+2] = data[4*i+3];
+				if (!ProfileWorld::isNoGraphics()) {
+					irr::video::IImage * img = irr_driver->getVideoDriver()->createScreenShot();
+					if (img) {
+						auto dim = img->getDimension();
+						pykart_controller->width  = dim.Width;
+						pykart_controller->height = dim.Height;
+						
+						if (img->getColorFormat() == irr::video::ECF_R8G8B8) {
+							void * data = img->lock();
+							memcpy(pykart_controller->img_data, data, pykart_controller->width*pykart_controller->height*3);
+							img->unlock();
+						} else if (img->getColorFormat() == irr::video::ECF_A8R8G8B8) {
+							const uint8_t * data = (const uint8_t*)img->lock();
+							for(size_t i=0; i<(size_t)pykart_controller->width * (size_t)pykart_controller->height; i++) {
+								pykart_controller->img_data[3*i+0] = data[4*i+1];
+								pykart_controller->img_data[3*i+1] = data[4*i+2];
+								pykart_controller->img_data[3*i+2] = data[4*i+3];
+							}
+							img->unlock();
+						} else {
+							printf("Unknown image format %d\n", (int)img->getColorFormat());
 						}
-						img->unlock();
-					} else {
-						printf("Unknown image format %d\n", (int)img->getColorFormat());
+						img->drop();
 					}
-					img->drop();
 				}
 				pykart_controller->write_lock = 0;
 			} else if (pykart_controller) {
 				pykart_controller->running = false;
 			}
+			
+            PROFILER_PUSH_CPU_MARKER("Update race", 0, 255, 255);
+            updateRace(dt);
+            PROFILER_POP_CPU_MARKER();
+        }   // if race is active
+		else if (pykart_controller) {
+			pykart_controller->running = false;
+		}
+        // We need to check again because update_race may have requested
+        // the main loop to abort; and it's not a good idea to continue
+        // since the GUI engine is no more to be called then.
+        // Also only do music, input, and graphics update if graphics are
+        // enabled.
+        if (!m_abort && !ProfileWorld::isNoGraphics())
+        {
+            PROFILER_PUSH_CPU_MARKER("Input/GUI", 0x7F, 0x00, 0x00);
+            input_manager->update(dt);
+
+            #ifdef ENABLE_WIIUSE
+                wiimote_manager->update();
+            #endif
             
             GUIEngine::update(dt);
             PROFILER_POP_CPU_MARKER();

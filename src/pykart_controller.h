@@ -7,7 +7,9 @@ struct PyKartController {
     int pid = 0;
     unsigned char read_lock=0, write_lock=0;
 	bool running = false, racing = false, restart = false, restarted = false, quit = false;
+    int use_ai = 0;
 	unsigned char action_state[8] = {0};
+	unsigned char ai_action_state[8] = {0};
 	float timestamp, position_along_track, distance_to_center, angle;
 	float position_in_race;
 	float speed, smooth_speed, wrongway, energy, finish_time;
